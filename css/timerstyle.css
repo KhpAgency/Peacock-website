@@ -1,0 +1,117 @@
+/* general styling */
+:root {
+  --smaller: .75;
+}
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  font-family: -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI", 
+    Roboto, 
+    Oxygen-Sans, 
+    Ubuntu, 
+    Cantarell, 
+    "Helvetica Neue", 
+    sans-serif;
+} */
+
+.container1 {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 70px;
+}
+.container2 {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 70px;
+  margin-top: 70px;
+}
+
+.mrgtop{
+  margin-top: 50px;
+}
+/* h1 {
+  font-weight: normal;
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+} */
+
+.li1 {
+  display: inline-block;
+  font-size: 1rem;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.span1 {
+  display: block;
+  font-size: 3rem;
+}
+
+.offerheading {
+  font-size: 1.7rem;
+  color: red;
+  font-family: "GE SS Two Medium";
+
+}
+.offerheading2 {
+  font-size: 1.2rem;
+  margin-top: 55px;
+  /* color: red; */
+  font-family: "GE SS Two Medium";
+  padding: 0px 15px 0px 15px;
+}
+
+.btnoffer {
+  background-color: #11ed04;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  border-radius: 25px;
+  margin-top: 25px;
+}
+.btnoffer:hover {
+  background-color: white;
+  color: #11ed04;
+}
+
+
+@media all and (max-width: 768px) {
+  /* h1 {
+    font-size: calc(1.5rem * var(--smaller));
+  } */
+
+  .li1 {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+
+  .span1 {
+    font-size: calc(3rem * var(--smaller));
+  }
+
+  .offerheading {
+    font-size: calc(1.8rem * var(--smaller));
+  }
+  .offerheading2 {
+    margin-top: 0px;
+  
+  }
+  /* .container1 {
+    margin-top: -55px;
+  } */
+}

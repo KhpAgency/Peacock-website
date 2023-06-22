@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Page</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="mt5 mb5 mt-mob">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="container mob-bg gallery">
+                                <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
+                                    <img src="https://s.fotorama.io/1.jpg">
+                                    <img src="https://s.fotorama.io/2.jpg">
+                                    <img src="https://s.fotorama.io/1.jpg">
+                                    <img src="https://s.fotorama.io/2.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product p-4">
+                                <div class="mt-4 mb-3">
+                                    <span class="text-uppercase text-muted brand">Orianz</span>
+                                    <h5 class="text-uppercase" id="title">Men's slim fit t-shirt</h5>
+                                    <div class="price d-flex flex-row align-items-center">
+                                        <span class="act-price" id="price">$20</span>
+                                        <div class="ml-2">
+                                            <small class="dis-price">$59</small>
+                                            <span>40% OFF</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="about">Shop from a wide range of t-shirts from Orianz. Perfect for your everyday use, you can pair it with a stylish pair of jeans or trousers to complete the look.</p>
+                                <div class="sizes mt-5">
+                                    <h6 class="text-uppercase">Size</h6>
+                                    <label class="radio">
+                                        <input type="radio" name="size" value="S" id="radio" checked>
+                                        <span>S</span>
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="size" value="M">
+                                        <span>M</span>
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="size" value="L">
+                                        <span>L</span>
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="size" value="XL">
+                                        <span>XL</span>
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="size" value="XXL">
+                                        <span>XXL</span>
+                                    </label>
+                                </div>
+                                <div class="cart mt-4 align-items-center">
+                                    <button id="add" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myCart">
+        <h2>My Cart</h2>
+        <ul id="cartItems"></ul>
+    </div>
+
+    <script>
+        // Function to add a product to the cart
+        function addToCart(product) {
+            // Check if the cartItems array exists in the localStorage, if not, create an empty array
+            if (!localStorage.getItem('cartItems')) {
+                localStorage.setItem('cartItems', JSON.stringify([]));
+            }
+
+            var cartItems = JSON.parse(localStorage.getItem('cartItems'));
+            cartItems.push(product);
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Display the updated cart
+            displayCart();
+        }
+
+        // Function to display the cart items
+        function displayCart() {
+            var cartItems = JSON.parse(localStorage.getItem('cartItems'));
+            var cartList = document.getElementById('cartItems');
+            cartList.innerHTML = '';
+
+            cartItems.forEach(function (item) {
+                var li = document.createElement('li');
+                li.textContent = item;
+                cartList.appendChild(li);
+            });
+        }
+
+        // Add event listener to the "Add to cart" button
+        var addToCartButton = document.getElementById('add');
+        addToCartButton.addEventListener('click', function () {
+            var title = document.getElementById('title').textContent;
+            addToCart(title);
+        });
+
+        // Display the cart when the page loads
+        displayCart();
+    </script>
+</body>
+</html>

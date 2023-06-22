@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Peacock | Menu</title>
+    <link rel="icon" href="img/logo1.png" type="image/x-icon">
+
+    <script id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js"
+        async=""></script>
+    <script src="https://www.youtube.com/player_api"></script>
+    <link rel="stylesheet preload" as="style" href="css/preload.min.css" />
+    <link rel="stylesheet preload" as="style" href="css/icomoon.css" />
+    <link rel="stylesheet preload" as="style" href="css/libs.min.css" />
+    <link rel="stylesheet" href="css/menu.min.css" />
+    <link rel="stylesheet" href="css/cart_icon.css" />
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <style>
+        .mySlides {
+            display: none
+        }
+
+        .w3-left,
+        .w3-right {
+            cursor: pointer;
+            width: 40px;
+            height: 60px;
+            opacity: 50%;
+            padding-top: 50%;
+            padding-bottom: 90%;
+            margin-bottom: -10px;
+        }
+
+        .w3-left:hover,
+        .w3-right:hover {
+            opacity: 100%;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+        }
+
+        .w3-badge {
+            height: 13px;
+            width: 13px;
+            padding: 0;
+            display: none;
+        }
+
+
+
+        /* #menu:hover{
+                transform: scale(1.4);
+                
+            } */
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '899272417976042');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=899272417976042&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta name="facebook-domain-verification" content="m9539gq9jxhutz9v8fk231jndbxaey" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-76V02XXPHB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-76V02XXPHB');
+    </script>
+
+
+</head>
+
+<body style="font-weight: lighter;margin-top:-50px;">
+    <header class="header" data-page="home" data-page-parent="home" style="background-color: #A8C7C7;">
+        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-xl-nowrap">
+            <a class="logo" href="index.html">
+                <!-- <span class="logo_img" ></span> -->
+                <img src="img/logo resized-01.png" style="max-height: 80px;">
+
+
+
+
+            </a>
+            <nav class="header_nav text--medium text--md collapse" id="headerMenu"
+                style="color: white;font-weight: 300;">
+                <ul class="header_nav-list" style="gap: 50px;">
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="index.html" data-page="services" data-single="true">
+                            <span class="nav-item_text"> HOME </span>
+
+                        </a>
+                        <div class="dropdown-menu collapse" id="homeMenu">
+
+                        </div>
+                    </li>
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="about.html" data-page="services" data-single="true">
+                            <span class="nav-item_text">ABOUT US</span>
+                        </a>
+                    </li>
+                    <li class="header_nav-list_item dropdown">
+                        <a class="nav-link nav-item dropdown-toggle d-flex align-items-center" data-bs-toggle="collapse"
+                            data-bs-target="#contactsMenu" data-trigger="dropdown" data-page-parent="contacts"
+                            data-main-link="true" aria-expanded="false" aria-controls="contactsMenu">
+                            <span class="nav-item_text">SERVICES </span>
+
+                        </a>
+                        <div class="dropdown-menu collapse" id="contactsMenu">
+                            <ul class="dropdown-list" style="background-color: #A8C7C7;">
+                                <!-- <li class="list-item" data-main="true">
+                                        <a
+                                            class="dropdown-item nav-item"
+                                            data-page="contacts"
+                                            data-page-parent="contacts"
+                                            href="menu.html"
+                                        >
+                                            Menu
+                                        </a>
+                                    </li> -->
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="catering.html">
+                                        Catering
+                                    </a>
+                                </li>
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="customization.html">
+                                        Customization
+                                    </a>
+                                </li>
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="delivery.html">
+                                        Delivery
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header_nav-list_item dropdown">
+                        <a class="nav-link nav-item dropdown-toggle d-flex align-items-center" data-bs-toggle="collapse"
+                            data-bs-target="#contactsMenu" data-trigger="dropdown" data-page-parent="contacts"
+                            data-main-link="true" aria-expanded="false" aria-controls="contactsMenu">
+                            <span class="nav-item_text">PRODUCTS </span>
+
+                        </a>
+                        <div class="dropdown-menu collapse" id="contactsMenu">
+                            <ul class="dropdown-list" style="background-color: #A8C7C7;">
+                                <!-- <li class="list-item" data-main="true">
+                                        <a
+                                            class="dropdown-item nav-item"
+                                            data-page="contacts"
+                                            data-page-parent="contacts"
+                                            href="menu.html"
+                                        >
+                                            Menu
+                                        </a>
+                                    </li> -->
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="divisions.html">
+                                        Chocolates
+                                    </a>
+                                </li>
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="divisions2.html">
+                                        Cakes
+                                    </a>
+                                </li>
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="divisions3.html">
+                                        Savory
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header_nav-list_item ">
+                        <a class="nav-link nav-item dropdown-toggle d-flex align-items-center" href="menu.html"
+                            data-bs-toggle="collapse" data-bs-target="#homeMenu" data-trigger="dropdown"
+                            data-main-link="true" aria-expanded="false" aria-controls="homeMenu" data-page="home"
+                            data-page-parent="home">
+                            <span class="nav-item_text"> MENU
+                            </span>
+
+                        </a>
+
+                    </li>
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="shop.html" data-page="services" data-single="true">
+                            <span class="nav-item_text"> SHOP
+                            </span>
+
+                        </a>
+
+                    </li>
+                    <!-- <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="offers.html" data-page="services" data-single="true">
+                            <span class="nav-item_text"> OFFERS
+                            </span>
+
+                        </a>
+
+                    </li> -->
+                    <!-- <div class="dropdown-menu collapse" id="contactsMenu" >
+                                <ul class="dropdown-list" style="background-color: #A8C7C7;">
+                                    <li class="list-item" style="background-color: #A8C7C7;">
+                                        <a
+                                            class="dropdown-item nav-item"
+                                            data-page="reservations"
+                                            data-page-parent="contacts"
+                                            href="menu.html"
+                                            
+                                        >
+                                            Menu
+                                        </a>
+                                    </li>
+                                    <li class="list-item" style="background-color: #A8C7C7;">
+                                        <a
+                                            class="dropdown-item nav-item"
+                                            data-page="reservations"
+                                            data-page-parent="contacts"
+                                            href="browse.html"
+                                            
+                                        >
+                                            Our Products
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> -->
+
+                    <!-- <li class="header_nav-list_item">
+                            <a class="nav-item nav-link" href="vip.html" data-page="menu" data-single="true">
+                                <span class="nav-item_text" >VIP CLIENTS</span>
+                            </a>
+                        </li> -->
+
+
+
+                    <li class="header_nav-list_item">
+                        <a class="nav-item nav-link" href="contacts.html" data-page="services" data-single="true">
+                            <span class="nav-item_text"> CONTACT US
+                            </span>
+
+                        </a>
+                        <div class="dropdown-menu collapse" id="pagesMenu">
+                            <!-- <ul class="dropdown-list">
+                                    <li class="list-item">
+                                        <a class="dropdown-item nav-item" data-page="team" data-page-parent="pages" href="team.html">
+                                            Team
+                                        </a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a class="dropdown-item nav-item" data-page="error" data-page-parent="pages" href="404.html">
+                                            Error Page
+                                        </a>
+                                    </li>
+                                </ul> -->
+                        </div>
+                    </li>
+                    <li class="header_nav-list_item dropdown">
+                        <a class="nav-link nav-item dropdown-toggle d-flex align-items-center" href="contacts.html"
+                            data-bs-toggle="collapse" data-bs-target="#contactsMenu" data-trigger="dropdown"
+                            data-page-parent="contacts" data-main-link="true" aria-expanded="false"
+                            aria-controls="contactsMenu">
+                            <!-- <span class="nav-item_text"> Contact Us </span>
+                                <span class="icon"></span> -->
+                        </a>
+                        <div class="dropdown-menu collapse" id="contactsMenu">
+                            <!-- <ul class="dropdown-list">
+                                    <li class="list-item" data-main="true">
+                                        <a
+                                            class="dropdown-item nav-item"
+                                            data-page="contacts"
+                                            data-page-parent="contacts"
+                                            href="contacts.html"
+                                        >
+                                            Contact Us
+                                        </a>
+                                    </li>
+                                    <li class="list-item">
+                                        <a
+                                            class="dropdown-item nav-item"
+                                            data-page="reservations"
+                                            data-page-parent="contacts"
+                                            href="reservations.html"
+                                        >
+                                            Reservations
+                                        </a>
+                                    </li>
+                                </ul> -->
+                        </div>
+                    </li>
+                </ul>
+                <ul class="header_nav-socials d-flex">
+                    <li class="header_nav-list_item dropdown">
+                        <a class="link nav-link nav-item dropdown-toggle d-flex align-items-center"
+                            data-bs-toggle="collapse" data-bs-target="#contactsMenu" data-trigger="dropdown"
+                            data-page-parent="contacts" data-main-link="true" aria-expanded="false"
+                            aria-controls="contactsMenu" rel="noopener noreferrer" style="width: 40px;height: 40px;">
+                            <i class="icon2-user icon2"></i>
+                        </a>
+                        <div class="dropdown-menu" id="contactsMenu">
+                            <ul class="dropdown-list" style="background-color: #A8C7C7;">
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="myprofile.html">
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li class="list-item" style="background-color: #A8C7C7;">
+                                    <a class="dropdown-item nav-item" data-page="reservations"
+                                        data-page-parent="contacts" href="#">
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <a class="link" href="https://www.facebook.com/peacockchocolate" target="_blank"
+                            rel="noopener noreferrer" style="width: 40px;height: 40px;">
+                            <i class="icon-facebook icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="link" href="https://instagram.com/peacock_chocolate_/" target="_blank"
+                            rel="noopener noreferrer" style="width: 40px;height: 40px;">
+                            <i class="icon-instagram icon"></i>
+                        </a>
+                    </li> -->
+                </ul>
+            </nav>
+            <button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
+                aria-controls="headerMenu" aria-expanded="false" type="button">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line line--short"></span>
+            </button>
+        </div>
+    </header>
+    <style>
+        @media only screen and (max-width: 600px) {
+            .infoo {
+
+                scale: 1.5;
+            }
+
+        }
+    </style>
+    <!-- <header class="page">
+        <div class="page_cover d-flex flex-column align-items-center justify-content-center" style="background-image: url('img/tttt-01.jpg');margin-top: 100px;
+            margin-bottom: -70px;">
+            <img class="infoo" src="img/png-08.png" alt="" style="width: 50%;padding-bottom: 2%;">
+        </div>
+    </header> -->
+    <!-- menu content start -->
+    <main>
+
+        <!-- Start Frontpage Banner Section -->
+        <div style="background-image: url('img/stable\ bg-02\ -\ Copy\ \(2\).jpg');">
+            <div>
+                <img src="img/menu/Peacock - Menu-01.jpg" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-02.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-03.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-04.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-05.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-06.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-07.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-08.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-09.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+            <div>
+                <img src="img/menu/Peacock - Menu-10.png" alt="First Slide" style="width: 100%;"></a>
+
+            </div>
+
+
+            <!-- <center>
+                <a href="https://publuu.com/flip-book/55378/163817/page/1?cover" class="show-publuu-viewer" style="width: auto; height: 500px; position: relative; display: inline-block;padding-top: 5px;margin-bottom: -3px;"><img src="https://g1.publuu.com/cover.php?iid=163817&pid=55378&page=1&time=1668417414" style="height: 100%;"></a><script src="https://cms1.publuu.com/js/embed-viewer.js"></script>            </center> -->
+            <!-- <center><div class="w3-content w3-display-container" id="menu" style="margin-top: 15px;margin-bottom: 30px;">
+                
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-01.jpg" style="max-width: 600px;">
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-02.png" style="max-width: 600px;">
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-03.png" style="max-width: 600px;">
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-04.png" style="max-width: 600px;">
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-05.png" style="max-width: 600px;" >
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-06.png" style="max-width: 600px;" >
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-07.png" style="max-width: 600px;" >
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-08.png" style="max-width: 600px;" >
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-09.png" style="max-width: 600px;" >
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-10.png" style="max-width: 600px;">
+                <img id=" " class="mySlides" src="img/menu/Peacock - Menu-11.png" style="max-width: 600px;">
+
+                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width: 630px;min-width:407px;">
+                    <a href="#mmm"><div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div></a>
+                    <a href="#mmm"><div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div></a> -->
+            <!-- <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(6)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(7)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(8)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(9)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(10)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(11)"></span> -->
+            <!-- </div>
+
+                  
+            </div></center> -->
+
+            <!-- <section class="menu section">
+                <div class="container">
+                    <div class="section_header centered">
+                        <span class="section_header-subtitle" data-aos="fade-down">Our menu</span>
+                        <h2 class="section_header-title" data-aos="fade-up" data-aos-delay="50">Special Menu</h2>
+                        <p class="section_header-text" data-aos="fade-up" data-aos-delay="100">
+                            Sed massa ac est ornare pharetra imperdiet nibh. Nunc tellus ullamcorper porta scelerisque.
+                        </p>
+                    </div>
+                    <div class="menu_main">
+                        <ul class="menu_nav nav nav-tabs d-flex flex-wrap justify-content-center" role="tablist">
+                            <li class="nav-item h4" role="presentation">
+                                <div
+                                    class="nav-link"
+                                    id="starters-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#starters"
+                                    role="tab"
+                                    aria-selected="true"
+                                >
+                                    CAKES
+                                </div>
+                            </li>
+                            <li class="nav-item h4" role="presentation">
+                                <div
+                                    class="nav-link active"
+                                    id="breakfasts-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#breakfasts"
+                                    role="tab"
+                                    aria-selected="false"
+                                >
+                                    CHOCOLATES
+                                </div>
+                            </li>
+                            <li class="nav-item h4" role="presentation">
+                                <div
+                                    class="nav-link"
+                                    id="desserts-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#desserts"
+                                    role="tab"
+                                    aria-selected="false"
+                                >
+                                    SAVORY
+                                </div>
+                            </li>
+                            <li class="nav-item h4" role="presentation">
+                                <div
+                                    class="nav-link"
+                                    id="beverages-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#beverages"
+                                    role="tab"
+                                    aria-selected="false"
+                                >
+                                    DATES
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="menuTabs">
+                            <div class="menu_tab tab-pane fade active">
+                                <span
+                                    class="menu_tab-trigger"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#starters"
+                                    aria-expanded="true"
+                                    role="button"
+                                >
+                                    <span class="label h4">Starters</span>
+                                    <i class="icon"></i>
+                                </span>
+                                <ul class="menu_tab-list collapse show" id="starters">
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Pate with Mushrooms</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">Mushrooms, Toast, Garlic Sauce</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Cheese Slices</a>
+                                            <span class="main_price">$25</span>
+                                        </div>
+                                        <p class="description text--md">Parmesan, Mascarpone, Mozzarella</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="spicy">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-spicy"></i> Chicken Wings</a>
+                                            <span class="main_price">$30</span>
+                                        </div>
+                                        <p class="description text--md">Chicken Wings, Sesame Seeds, Spicy Sauce</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Shrimps in Butter</a>
+                                            <span class="main_price">$18</span>
+                                        </div>
+                                        <p class="description text--md">Shrimps, Sauce, Herbs</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Сold Сuts</a>
+                                            <span class="main_price">$32</span>
+                                        </div>
+                                        <p class="description text--md">Balyk, Prosciutto, Boiled Pork</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="vegan">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-vegan"></i> Pita Bread with Vegetables</a>
+                                            <span class="main_price">$28</span>
+                                        </div>
+                                        <p class="description text--md">Lavash, Greens, Tomato, Cabbage, Cucumber, Sauce</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="vegan">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-vegan"></i> Assorted Vegetables</a>
+                                            <span class="main_price">$10</span>
+                                        </div>
+                                        <p class="description text--md">Сucumbers, Tomatoes, Peppers, Olives</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Toast with Salmon</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">Bread, Flax, Herbs, Sauce, Salmon</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu_tab tab-pane fade">
+                                <span
+                                    class="menu_tab-trigger"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#breakfasts"
+                                    aria-expanded="false"
+                                    role="button"
+                                >
+                                    <span class="label h4">Breakfasts</span>
+                                    <i class="icon"></i>
+                                </span>
+                                <ul class="menu_tab-list collapse" id="breakfasts">
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">English Breakfast</a>
+                                            <span class="main_price">$25</span>
+                                        </div>
+                                        <p class="description text--md">bacon or breakfast sausage, choice of eggs</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="spicy">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-spicy"></i> Classic Breakfast</a>
+                                            <span class="main_price">$18</span>
+                                        </div>
+                                        <p class="description text--md">waffles or pancakes, bacon or breakfast sausage, eggs</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Nutella French Toast</a>
+                                            <span class="main_price">$16</span>
+                                        </div>
+                                        <p class="description text--md">fresh fruit and whipped cream</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Avocado Toast</a>
+                                            <span class="main_price">$16</span>
+                                        </div>
+                                        <p class="description text--md">sourdough bread, poached eggs, feta, light salad</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Buttermilk Pancakes</a>
+                                            <span class="main_price">$12</span>
+                                        </div>
+                                        <p class="description text--md">fresh fruit and whipped cream</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="spicy">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-spicy"></i> Huevos Rancheros</a>
+                                            <span class="main_price">$16</span>
+                                        </div>
+                                        <p class="description text--md">scrambled eggs , avocado, feta cheese, ranchero sauce</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Avenue Club</a>
+                                            <span class="main_price">$19</span>
+                                        </div>
+                                        <p class="description text--md">grilled chicken, american cheese, bacon, tomatoes, avocado</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Penne Alfredo</a>
+                                            <span class="main_price">$24</span>
+                                        </div>
+                                        <p class="description text--md">penne and creamy parmesan alfredo sauce with grilled chicken</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu_tab tab-pane fade">
+                                <span
+                                    class="menu_tab-trigger"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#desserts"
+                                    aria-expanded="false"
+                                    role="button"
+                                >
+                                    <span class="label h4">Desserts</span>
+                                    <i class="icon"></i>
+                                </span>
+                                <ul class="menu_tab-list collapse" id="desserts">
+                                    <li class="menu_tab-list_item" data-type="vegan">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-vegan"></i> Nutella Chocolate</a>
+                                            <span class="main_price">$12</span>
+                                        </div>
+                                        <p class="description text--md">hazelnut chocolate</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="vegan">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-vegan"></i> Romeo and Juliet</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">nutella, bananas, strawberries</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="vegan">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-vegan"></i> Very Berry</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">nutella, strawberries, blueberries</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Biscotti</a>
+                                            <span class="main_price">$14</span>
+                                        </div>
+                                        <p class="description text--md">nutella, crumbled biscuits</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Brownie</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">chocolate chips brownies, nutella hazelnut spread</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Brownie Sundae</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">Vanilla Ice Cream Chocolate Sauce</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Cheese Cake</a>
+                                            <span class="main_price">$10</span>
+                                        </div>
+                                        <p class="description text--md">Vanilla Sour Cream, Strawberry Sauce</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Fruit Parfait</a>
+                                            <span class="main_price">$14</span>
+                                        </div>
+                                        <p class="description text--md">Greek Yogurt, Honey, Mango, Bananas, Berries</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu_tab tab-pane fade">
+                                <span
+                                    class="menu_tab-trigger"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#beverages"
+                                    aria-expanded="false"
+                                    role="button"
+                                >
+                                    <span class="label h4">Beverages</span>
+                                    <i class="icon"></i>
+                                </span>
+                                <ul class="menu_tab-list collapse" id="beverages">
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Strawberry Lychee</a>
+                                            <span class="main_price">$13</span>
+                                        </div>
+                                        <p class="description text--md">Strawberries, Lychee Juice, Lime Juice, Ginger Beer</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Blueberry Mojito</a>
+                                            <span class="main_price">$13</span>
+                                        </div>
+                                        <p class="description text--md">Blueberries, Mint, Lime Juice, Club Soda, Sprite</p>
+                                    </li>
+                                    <li class="menu_tab-list_item" data-type="spicy">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#"><i class="icon-spicy"></i> Spicy Rita</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">Spicy Margarita Top With Chili Pepper</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Puebla Old Fashioned</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">Reposado Tequila, orange Bitters, Brown Sugar, Sweet Cherry</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Santorini Mule</a>
+                                            <span class="main_price">$15</span>
+                                        </div>
+                                        <p class="description text--md">
+                                            Tanqueray Dry Gin, Mastiha Liquor Garnish, thyme Leaf, Lime Wheel
+                                        </p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Tropical Cooler</a>
+                                            <span class="main_price">$17</span>
+                                        </div>
+                                        <p class="description text--md">Grey Goose, Vanilla, Mango, Pineapple, Elderflower</p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Fig Dark & Stormy</a>
+                                            <span class="main_price">$17</span>
+                                        </div>
+                                        <p class="description text--md">
+                                            Fig Jam, Lime Juice, Captain Morgan, Ginger Beer, Fig Slices, Thyme
+                                        </p>
+                                    </li>
+                                    <li class="menu_tab-list_item">
+                                        <div class="main h5">
+                                            <a class="main_name" href="#">Maple Makers Old Fashion</a>
+                                            <span class="main_price">$17</span>
+                                        </div>
+                                        <p class="description text--md">Makers Mark Bourbon, Maple Syrup, Angostura Dash, Luxardo Cherry</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+            <!-- banners section start -->
+            <!-- <div class="banners">
+                <div class="container">
+                    <ul class="banners_list">
+                        <li class="banners_list-item">
+                            <a class="link" href="#">
+                                <span class="media">
+                                    <picture>
+                                        <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                        <img
+                                            class="lazy"
+                                            data-src="img/placeholder.jpg"
+                                            src="img/placeholder.jpg"
+                                            alt="Every 5th Breakfast as a Gift."
+                                        />
+                                    </picture>
+                                </span>
+                                <span class="main">
+                                    <span class="section_header-subtitle">free</span>
+                                    <span class="h4">Every 5th Breakfast as a Gift.</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="banners_list-item">
+                            <a class="link" href="#">
+                                <span class="media">
+                                    <picture>
+                                        <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                        <img
+                                            class="lazy"
+                                            data-src="img/placeholder.jpg"
+                                            src="img/placeholder.jpg"
+                                            alt="Coffee + Napoleon"
+                                        />
+                                    </picture>
+                                </span>
+                                <span class="main">
+                                    <span class="h4">Coffee <i class="icon-plus icon"></i> Napoleon</span>
+                                    <span class="main_text text--medium text--md">Profit up to 35%</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="banners_list-item banners_list-item--img">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Our Offers" />
+                            </picture>
+                        </li>
+                        <li class="banners_list-item banners_list-item--img">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Our Offers" />
+                            </picture>
+                        </li>
+                        <li class="banners_list-item">
+                            <a class="link" href="#">
+                                <span class="media">
+                                    <picture>
+                                        <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                        <img
+                                            class="lazy"
+                                            data-src="img/placeholder.jpg"
+                                            src="img/placeholder.jpg"
+                                            alt="Cyber Wednesday!"
+                                        />
+                                    </picture>
+                                </span>
+                                <span class="main">
+                                    <span class="h4">Cyber Wednesday!</span>
+                                    <span class="main_text text--medium text--md">Dessert day, second position for free.</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+            <!-- banners section end -->
+            <!-- booking section start -->
+            <!-- <section class="booking section">
+                <div class="container">
+                    <div class="section_header centered">
+                        <span class="section_header-subtitle" data-aos="fade-up">contact us</span>
+                        <h2 class="section_header-title" data-aos="fade-up" data-aos-delay="50">Book Your Reservation Today</h2>
+                        <p class="section_header-text" data-aos="fade-up" data-aos-delay="100">
+                            Mauris pharetra et ultrices neque ornare aenean euismod. Bibendum neque egestas congue quisque egestas diam in.
+                            Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+                        </p>
+                    </div>
+                    <div class="wrapper" data-aos="fade-up" data-aos-delay="150">
+                        <a class="booking_btn btn" href="reservations.html">reserve a table</a>
+                    </div>
+                </div>
+            </section> -->
+            <!-- booking section end -->
+            <!-- map section start -->
+            <!-- <div class="mapouter"><div class="gmap_canvas"><iframe width="1528" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=peacock%208023%20Al%20Imam%20Saud%20Ibn%20Faysal%20Rd,%20%D8%AD%D9%8A%20%D8%A7%D9%84%D8%B9%D9%82%D9%8A%D9%82%D8%8C,%202561,%20Riyadh%2013515,%20Saudi%20Arabia%20-%20peacock&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net">fmovies</a><br><style>.mapouter{position:relative;text-align:right;height:400px;width:1528px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:1528px;}</style></div></div>         -->
+            <!-- map section end -->
+            <!-- gallery section start -->
+            <!-- <div class="gallery_slider swiper">
+                <div class="swiper-wrapper">
+                    <div class="gallery_slider-slide swiper-slide">
+                        <a class="link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Gallery Item" />
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="gallery_slider-slide swiper-slide">
+                        <a class="link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Gallery Item" />
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="gallery_slider-slide swiper-slide">
+                        <a class="link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Gallery Item" />
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="gallery_slider-slide swiper-slide">
+                        <a class="link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Gallery Item" />
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="gallery_slider-slide swiper-slide">
+                        <a class="link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <picture>
+                                <source data-srcset="img/placeholder.jpg" srcset="img/placeholder.jpg" type="image/webp" />
+                                <img class="lazy" data-src="img/placeholder.jpg" src="img/placeholder.jpg" alt="Gallery Item" />
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+            <!-- gallery section end -->
+            <!-- menu content end -->
+    </main>
+
+    
+   <div>
+        <span class="notification"><p class="num">0</p></span>
+        <a href="cart.html" class="float">
+            <img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
+        </a>
+    </div>
+
+    <!-- footer -->
+    <style>
+        @media only screen and (max-width: 600px) {
+            .footer_block-title {
+
+                font-size: 18px;
+            }
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            .link {
+
+                font-size: 12px;
+            }
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            .footer_block-subtitle {
+
+                font-size: 12px;
+            }
+
+        }
+
+        @media only screen and (max-width: 600px) {
+            .footer_block-socials {
+
+                scale: 0.6;
+                margin-top: -9px;
+                margin-left: -30px;
+            }
+
+        }
+    </style>
+    <footer class="footer section" style="background-image: url('img/bg.jpeg');background-repeat: no-repeat;background-size: cover;padding-top: 20px;
+       padding-bottom: 20px;">
+        <div class="container ">
+            <div class="row gy-8 gx-8">
+                <div class="col-4 col-md-3">
+                    <div class="footer_about">
+                        <a class="logo h3" href="index.html" style="font-size: 35px;">
+                            <img src="img/Asset 2.png">
+
+                            </span>
+
+                        </a>
+                        <!-- <div class="wrapper">
+                       <p class="footer_about-address text--sm text--bold">Riverside Building, County Hall, London SE1 7PB, UK</p>
+                       <p class="footer_about-copyright text--sm">
+                           Merkulove &copy; Cafert Template All Rights Reserved <span id="currentYear"></span>
+                       </p>
+                   </div> -->
+
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row gy-8 gx-8 justify-content-between">
+                <div class="col-6 col-md-4">
+                    <div class="footer_block" style="margin-top: -1px;">
+                        <h4 class="footer_block-title">Contact Info</h4>
+                        <ul class="footer_block-list text--bold text--md">
+                            <li>
+                                <a class="link" href="tel:00966-550626590"> <img src="img/phone.png"
+                                        style="width: 16px;margin-left: -2px;">00966-550626590 </a>
+                            </li>
+
+                            <!-- <li>
+                           <a class="link" href="https://peacockchocolate.com.sa/" > <img src="img/ws.png" style="width: 20px;margin-left: -4px;">  peacockchocolate.com.sa</a>
+                       </li> -->
+                            <li>
+                                <a class="link" href="location:Imam Saud bin Faisal St.- Riyadh - Saudi Arabia"> <img
+                                        src="img/loc.png" style="width: 17px;margin-left: -1px;">Al Imam Saud Ibn Faysal
+                                    Rd.-Riyadh-Saudi Arabia</a>
+                            </li>
+                            <li>
+                                <a class="link" href="mailto:roaanazawi@peacockchocolate.com.sa"> <img
+                                        src="img/email.png"
+                                        style="width: 20px;margin-left: -3px;">roaanazawi@peacockchocolate.com.sa</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-3 col-md-3">
+               <div class="footer_block" style="margin-top: -1px;">
+                   <h4 class="footer_block-title" style="font-size: 22px;">Opening Hours</h4>
+                   <ul class="footer_block-list text--md">
+                       <li style="font-weight: 300;"><span class="text--bold">Mon – Fri</span> from 8am to 9pm</li>
+                       <li style="font-weight: 300;"><span class="text--bold">Saturday</span> from 9am to 4pm</li>
+                       <li style="font-weight: 300;"><span class="text--bold">Sunday</span> from 9am to 4pm</li>
+                   </ul>
+               </div>
+           </div> -->
+                <div class="col-6 col-md-4">
+                    <div class="footer_block" style="margin-top: -1px;">
+                        <h4 class="footer_block-title">Follow Our Activity</h4>
+                        <p class="footer_block-subtitle text--md text--bold">We are in social networks</p>
+                        <ul class="footer_block-socials d-flex" style="padding-bottom: 20px;">
+                            <li class="kkk">
+                                <a class="link" href="https://twitter.com/PeacockChocola" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="icon-twitter icon"></i>
+                                </a>
+                            </li>
+                            <li class="kkk">
+                                <a class="link" href="https://www.facebook.com/Peacock-Chocolate-105713368864072"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-facebook icon"></i>
+                                </a>
+                            </li>
+                            <li class="kkk">
+                                <a class="link" href="https://instagram.com/peacock_chocolate_/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="icon-instagram icon"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-8 gx-8 justify-content-between">
+
+            </div>
+        </div>
+    </footer>
+    <script src="js/common.min.js"></script>
+    <script src="js/map.min.js"></script>
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+
+    <script>
+        fbq('track', 'ViewContent');
+        fbq('track', 'Purchase');
+        fbq('track', 'Schedule');
+        fbq('track', 'Contact');
+    </script>
+
+
+</body>
+
+</html>

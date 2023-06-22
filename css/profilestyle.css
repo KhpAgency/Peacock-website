@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+body {
+	background: #ede6dc68;
+	font-family: "Roboto", sans-serif;
+}
+
+.hh{
+	height: auto !important;
+}
+
+.shadow {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.profile-tab-nav {
+	min-width: 250px;
+}
+
+.tab-content {
+	flex: 1;
+}
+
+.form-group {
+	margin-bottom: 1.5rem;
+}
+
+.nav-pills a.nav-link {
+	padding: 15px 20px;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
+	color: #333;
+}
+
+.nav-pills a.nav-link i {
+	width: 20px;
+}
+
+.img-circle img {
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	border: 5px solid #fff;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+	background-color: #A8C7C7 !important;
+	color: white !important;
+	padding: 12px !important;
+}
+
+.nav-pills a.nav-link {
+	padding: 12px !important;
+}
+
+.inline{
+	display: inline !important;
+}
+
+.btn-light{
+	background-color: #eff0f1 !important;
+}
+
+.btn {
+	height: 45px !important;
+	text-transform: lowercase !important;
+}
+.btn-primary {
+	color: #fff;
+	background-color: #A8C7C7;
+	border-color: #A8C7C7;
+}
+
+.btn-primary:hover {
+	background-color: #96c1c1;
+	border-color: #96c1c1;
+}
