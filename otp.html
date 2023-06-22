@@ -24,13 +24,13 @@
         <section class="login">
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
+                    <form id="reset-form" class="signup-form">
                         <h2 class="form-title">Enter verification code</h2>
                         <div class="form-group">
-                            <input class="otp mrg" type="text" maxlength=6>
+                            <input class="otp mrg" name="resetCode" type="text" maxlength=6>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Send" />
+                            <button type="submit" id="submit" class="form-submit">Send</button>
                         </div>
                     </form>
                 </div>
@@ -40,9 +40,11 @@
     </div>
 
     <!-- JS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="js/otp.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/login.js"></script>
+    <!-- <script src="js/login.js"></script> -->
     <!-- <script src="js/main.js"></script> -->
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

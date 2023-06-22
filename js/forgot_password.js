@@ -1,6 +1,6 @@
-const baseUrl = 'https://peacock-api-ixpn.onrender.com/api/v1/auth/verifyResetcode';
+const baseUrl = 'https://peacock-api-ixpn.onrender.com/api/v1/auth/forgetPassword';
 
-const form = document.getElementById("reset-form");
+const form = document.getElementById("email-form");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     collectFormData();
