@@ -4,7 +4,7 @@ const form = document.getElementById("newpw-form");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     collectFormData();
-
+    validateForm();
 });
 
 function clearForm() {
@@ -14,7 +14,7 @@ function clearForm() {
 function collectFormData() {
     const formData = new FormData(form);
     const options = {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -31,4 +31,18 @@ function collectFormData() {
         });
 
 
+}
+
+ function validateForm() {
+    var password = document.getElementById("newPassword").value;
+    var rePassword = document.getElementById("confirmationPassword").value;
+
+    if (password !== rePassword) {
+        alert("Passwords do not match.");
+        return false;
+    }
+    else{
+        return true; 
+    }
+    
 }

@@ -20,6 +20,10 @@
     scrollbar-color: #b38e6a #f7f7f7
 }
 
+.dnone{
+    display: none;
+}
+
 html {
     scroll-behavior: smooth;
 }

@@ -1,34 +1,55 @@
-const baseUrl = 'https://peacock-api-ixpn.onrender.com/api/v1/auth/login';
+const baseUrl = "https://peacock-api-ixpn.onrender.com/api/v1/auth/login";
 
 const form = document.getElementById("login-form");
 form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    collectFormData();
+  event.preventDefault();
+  collectFormData();
 
 });
 
 function clearForm() {
-    form.reset();
+  form.reset();
 }
 
 function collectFormData() {
-    const formData = new FormData(form);
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+  const formData = new FormData(form);
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    url: baseUrl,
+    data: new URLSearchParams(formData),
+  };
+  axios
+    .request(options)
+    .then(function (response) {
+      console.log(response.data); 
+      const token = response.data.token;
+      sessionStorage.setItem('token', token);
+  
+      Toastify({
+        text: "Logged in Successfully",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          borderRadius: "5px",
         },
-        url: baseUrl,
-        data: new URLSearchParams(formData),
-    };
-    axios
-        .request(options)
-        .then(function (response) {
-            console.log(response.data); // Log the entire response object for inspection
-        })
-        .catch(function (error) {
-            console.error(error); // Log the error object for troubleshooting
-        });
+      }).showToast();
+      clearForm();
+    })
 
+    .catch(function (error) {
+      console.error(error.response.data); 
+      Toastify({
+        text: error.response.data.message,
+        className: "info",
+        style: {
+          background: "red",
+          borderRadius: "5px",
+        },
+      }).showToast();
+    });
 
+    window.location.href = "index.html";
 }
