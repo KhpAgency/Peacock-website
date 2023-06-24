@@ -7,6 +7,10 @@ form.addEventListener("submit", function (event) {
 
 });
 
+function redirct() {
+  window.location.href = "index.html"
+}
+
 function clearForm() {
   form.reset();
 }
@@ -24,10 +28,12 @@ function collectFormData() {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data); 
-      const token = response.data.token;
-      sessionStorage.setItem('token', token);
-  
+      console.log(response.data);
+      if (response.data.token) {
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+        
+      }
       Toastify({
         text: "Logged in Successfully",
         className: "info",
@@ -35,12 +41,15 @@ function collectFormData() {
           background: "linear-gradient(to right, #00b09b, #96c93d)",
           borderRadius: "5px",
         },
+        
       }).showToast();
       clearForm();
+      // setTimeout(redirct(), 100000);
+
     })
 
     .catch(function (error) {
-      console.error(error.response.data); 
+      console.error(error.response.data);
       Toastify({
         text: error.response.data.message,
         className: "info",
@@ -51,5 +60,4 @@ function collectFormData() {
       }).showToast();
     });
 
-    window.location.href = "index.html";
 }
