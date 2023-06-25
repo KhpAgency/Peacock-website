@@ -1,9 +1,62 @@
+let baseUrl = "https://peacock-api-ixpn.onrender.com/api/v1/cart";
+
+const form = document.querySelector("#form1");
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    collectFormData();
+});
+
+function collectFormData(form) {
+    const formData = new FormData(form);
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        },
+        url: baseUrl,
+        data: { productCategory: localStorage.getItem("productCategory"), productID: localStorage.getItem("id"), variant: new URLSearchParams(formData), price: localStorage.getItem("price") },
+    };
+
+    axios
+        .request(options)
+        .then(function (response) {
+            console.log(response.data);
+            Toastify({
+                text: "Product added to cart!",
+                className: "info",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    borderRadius: "5px",
+                },
+
+            }).showToast();
+            clearForm();
+            // setTimeout(redirct(), 100000);
+
+        })
+
+        .catch(function (error) {
+            console.error(error.response.data);
+            Toastify({
+                text: error.response.data.message,
+                className: "info",
+                style: {
+                    background: "red",
+                    borderRadius: "5px",
+                },
+            }).showToast();
+        });
+
+}
+
+
 async function getboxes() {
     let productDetails = localStorage.getItem('id');
     // console.log(productDetails);
     let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/chocolateBox/${productDetails}`);
 
-    console.log(data.data);
+    // console.log(data.data);
     let dataRow = `
         <div class="row">
             <div class="col-md-6">
@@ -35,18 +88,22 @@ async function getboxes() {
                         </div>`
         }
                     <p class="about">${data.data.description}</p>
+                    <form  id="form1">
+
                     <div class="sizes mt-5">
                         <h6 class="text-uppercase">Number of pieces</h6> 
                         ${data.data.pieces.map((piece) =>
             `<label class="radio"> 
-                            <input type="radio" name="size" value="${piece}" id="radio" checked>
+                            <input type="radio" name="size" value="${piece}" id="radio" >
                             <span>${piece}</span>
                             </label>`).join("")}
                         
                     </div>
                     <div class="cart mt-4 align-items-center">
-                        <button id="add" onclick="addToCart()" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                        <button type="submit" id="add" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
                     </div>
+                    </form>
+
                 </div>
             </div>
         </div>`;
@@ -56,7 +113,8 @@ async function getboxes() {
 }
 getboxes();
 
-async function gettrays() {
+
+async function getTrays() {
     let productDetails = localStorage.getItem('id');
     // console.log(productDetails);
     let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/trays/${productDetails}`);
@@ -112,7 +170,7 @@ async function gettrays() {
     document.getElementById('card1').innerHTML = dataRow;
     initFotorama(); // Initialize fotorama after setting the HTML content
 }
-gettrays();
+getTrays();
 
 async function getpackages() {
     let productDetails = localStorage.getItem('id');
@@ -233,4 +291,6 @@ getcakes();
 function initFotorama() {
     $('.fotorama').fotorama(); // Initialize fotorama component
 }
+
+
 

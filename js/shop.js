@@ -1,4 +1,13 @@
-async function getData() {
+const setID =(id,category,variant,price) => {
+    localStorage.setItem("id", id);
+    localStorage.setItem("productCategory",category.replace(' ', ''));
+    localStorage.setItem("variant",variant);
+    localStorage.setItem("price",price);
+
+}
+
+
+async function getchocolateBox() {
     let { data } = await axios.get("https://peacock-api-ixpn.onrender.com/api/v1/chocolateBox")
     
     console.log(data.data);
@@ -28,11 +37,11 @@ async function getData() {
     ${product.discountedPrice ? `<div class="product-content">
     <input class="field" type="text" name="id" value="${product._id}" hidden/>
 
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price"><span>SAR&nbsp;${product.price}</span>SAR&nbsp;${product.discountedPrice}</div>
     </div>` : `<div class="product-content">
     <input class="field" type="text" name="id" value="${product._id}" hidden />
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price">SAR&nbsp;${product.price}</div>
     </div>`}
             
@@ -43,14 +52,12 @@ async function getData() {
     document.getElementById('row1').innerHTML = dataRow;
 
 }
-getData();
-
-const setID =(id) => {
-    localStorage.setItem("id", id)
-}
+getchocolateBox();
 
 
-async function getData2() {
+
+
+async function getTrays() {
     let { data } = await axios.get("https://peacock-api-ixpn.onrender.com/api/v1/trays")
 
     console.log(data.data);
@@ -78,10 +85,10 @@ async function getData2() {
     </div>`}
         
     ${product.discountedPrice ? `<div class="product-content">
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}','${product.weight}','${product.price}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price"><span>SAR&nbsp;${product.price}</span>SAR&nbsp;${product.discountedPrice}</div>
     </div>` : `<div class="product-content">
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}','${product.weight}','${product.price}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price">SAR&nbsp;${product.price}</div>
     </div>`}
             
@@ -91,10 +98,10 @@ async function getData2() {
 
     document.getElementById('row2').innerHTML = dataRow;
 }
-getData2();
+getTrays();
 
 
-async function getData3() {
+async function getPackages() {
     let { data } = await axios.get("https://peacock-api-ixpn.onrender.com/api/v1/packages")
 
     console.log(data.data);
@@ -108,7 +115,7 @@ async function getData3() {
     </a>
     <span class="product-sale-label">sale!</span>
     <div class="product-rating">
-        <a class="add-to-cart" onclick="addToCart('${product._id}')" href="#"> ADD TO CART </a>
+        <a class="add-to-cart" onclick="addToCart('${product._id}','${product.categoryName}','${product.weight}','${product.price}')" href="#"> ADD TO CART </a>
     </div>
     </div>` : `<div class="product-image">
     <a href="#" class="image">
@@ -117,15 +124,15 @@ async function getData3() {
     </a>
 
     <div class="product-rating">
-        <a class="add-to-cart" onclick="addToCart('${product._id}')" href="#"> ADD TO CART </a>
+        <a class="add-to-cart" onclick="addToCart('${product._id}','${product.categoryName}','${product.weight}','${product.price}')" href="#"> ADD TO CART </a>
     </div>
     </div>`}
         
     ${product.discountedPrice ? `<div class="product-content">
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price"><span>SAR&nbsp;${product.price}</span>SAR&nbsp;${product.discountedPrice}</div>
     </div>` : `<div class="product-content">
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price">SAR&nbsp;${product.price}</div>
     </div>`}
             
@@ -135,10 +142,10 @@ async function getData3() {
 
     document.getElementById('row3').innerHTML = dataRow;
 }
-getData3();
+getPackages();
 
 
-async function getData4() {
+async function getCakes() {
     let { data } = await axios.get("https://peacock-api-ixpn.onrender.com/api/v1/cakes")
 
     console.log(data.data);
@@ -152,7 +159,7 @@ async function getData4() {
     </a>
     <span class="product-sale-label">sale!</span>
     <div class="product-rating">
-        <a class="add-to-cart" onclick="addToCart('${product._id}')" href="#"> ADD TO CART </a>
+        <a class="add-to-cart" onclick="addToCart('${product._id}','${product.categoryName}','${product.size}','${product.price}')" href="#"> ADD TO CART </a>
     </div>
     </div>` : `<div class="product-image">
     <a href="#" class="image">
@@ -161,15 +168,15 @@ async function getData4() {
     </a>
 
     <div class="product-rating">
-        <a class="add-to-cart" onclick="addToCart('${product._id}')" href="#"> ADD TO CART </a>
+        <a class="add-to-cart" onclick="addToCart('${product._id}','${product.categoryName}','${product.size}','${product.price}')" href="#"> ADD TO CART </a>
     </div>
     </div>`}
         
     ${product.discountedPrice ? `<div class="product-content">
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price"><span>SAR&nbsp;${product.price}</span>SAR&nbsp;${product.discountedPrice}</div>
     </div>` : `<div class="product-content">
-    <h3 class="title"><a onclick="setID('${product._id}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price">SAR&nbsp;${product.price}</div>
     </div>`}
             
@@ -179,6 +186,6 @@ async function getData4() {
 
     document.getElementById('row4').innerHTML = dataRow;
 }
-getData4();
+getCakes();
 
 
