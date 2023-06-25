@@ -1,5 +1,9 @@
 let baseUrl = "https://peacock-api-ixpn.onrender.com/api/v1/cart";
 
+function setVariant(e) {
+    localStorage.setItem('variant', e.target.value)
+}
+
 async function getboxes() {
     let productDetails = localStorage.getItem('id');
     let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/chocolateBox/${productDetails}`);
@@ -38,10 +42,10 @@ async function getboxes() {
 
                     <div class="sizes mt-5">
                         <h6 class="text-uppercase">Number of pieces</h6> 
-                        <select>
+                        <select >
                         <option disabled selected="selected">Choose...</option>
                         ${data.data.pieces.map((piece) =>`
-                            <option value="${piece}" >${piece} pieces</option>
+                            <option  value="${piece}" >${piece} pieces</option>
 
                         `).join("")}
                         </select>
@@ -62,41 +66,26 @@ async function getboxes() {
         event.preventDefault();
         collectFormData(form);
     });
+
+    let selectElement = document.querySelector("#form1 select");
+    selectElement.addEventListener("change", setVariant);
 }
 getboxes();
 
 
 
-
 function collectFormData(form) {
-    const formData = new FormData(form);
-    console.log(formData);
-  
-    const variant = formDataToObject(formData); // Convert form data to JSON object
-  
-    if (isEmptyObject(variant)) {
-      console.error("Form data is empty. Please ensure form fields have values.");
-      return;
-    }
-  
+
+    
     const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      },
-      url: baseUrl,
-      data: {
-        productCategory: localStorage.getItem("productCategory"),
-        productID: localStorage.getItem("id"),
-        variant: JSON.stringify(variant), // Serialize variant object to a string
-        price: localStorage.getItem("price")
-      },
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        },
+        url: baseUrl,
+        data: { productCategory: localStorage.getItem("productCategory"), productID: localStorage.getItem("id"), variant: localStorage.getItem("variant"), price: localStorage.getItem("price") },
     };
-    console.log(options.data);
-  
-  
-  
 
     axios
         .request(options)
@@ -117,7 +106,7 @@ function collectFormData(form) {
         })
 
         .catch(function (error) {
-            console.error(error.response.data);
+            console.error(error);
             // Toastify({
             //     text: error.response.data.message,
             //     className: "info",
@@ -130,24 +119,7 @@ function collectFormData(form) {
 
 }
 
-function formDataToObject(formData) {
-    const obj = {};
-    formData.forEach((value, key) => {
-      if (!obj.hasOwnProperty(key)) {
-        obj[key] = value;
-      } else {
-        if (!Array.isArray(obj[key])) {
-          obj[key] = [obj[key]];
-        }
-        obj[key].push(value);
-      }
-    });
-    return obj;
-  }
-  
-  function isEmptyObject(obj) {
-    return Object.keys(obj).length === 0 && obj.constructor === Object;
-  }
+
 // async function getTrays() {
 //     let productDetails = localStorage.getItem('id');
 //     // console.log(productDetails);
