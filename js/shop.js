@@ -37,7 +37,7 @@ async function getchocolateBox() {
     ${product.discountedPrice ? `<div class="product-content">
     <input class="field" type="text" name="id" value="${product._id}" hidden/>
 
-    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" href="product_detail.html">${product.title}</a></h3>
+    <h3 class="title"><a onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.discountedPrice}')" href="product_detail.html">${product.title}</a></h3>
     <div class="price"><span>SAR&nbsp;${product.price}</span>SAR&nbsp;${product.discountedPrice}</div>
     </div>` : `<div class="product-content">
     <input class="field" type="text" name="id" value="${product._id}" hidden />
