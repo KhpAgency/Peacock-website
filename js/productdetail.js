@@ -73,10 +73,8 @@ async function getboxes() {
 getboxes();
 
 
-
 function collectFormData(form) {
 
-    
     const options = {
         method: "POST",
         headers: {
