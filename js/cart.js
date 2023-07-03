@@ -14,13 +14,14 @@ function getitems() {
     axios.request(options)
         .then(function (response) {
             const cart = response.data.data.cartItems
-            cart.map((item) => axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/${item.productCategory.toLowerCase()}/${item.productID}`).then((res) => {
-                document.getElementById('products-card').innerHTML += `<div class="row mb-5" id="product">
+            let data = cart.map((item) =>
+                // console.log(response.data.data)
+                `<div class="row mb-5" id="product">
             <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                 <div class="bg-image hover-overlay hover-zoom ripple rounded"
                     data-mdb-ripple-color="light">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
-                        class="w-100" alt="Blue Jeans Jacket" />
+                    <img src="${item.productID.images[0]}"
+                        class="w-100" alt="" />
                     <a href="#!">
                         <div class="mask"
                             style="background-color: rgba(251, 251, 251, 0.2)"></div>
@@ -29,9 +30,18 @@ function getitems() {
             </div>
 
             <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                <p><strong>${res.data.data.title}</strong></p>
-                <p>Color: blue</p>
-                <p>Size: M</p>
+                <p><strong>${item.productID.title}</strong></p>
+                <p>${item.productID.description}</p>
+
+                ${item.productCategory == "ChocolateBox" ?
+                    `<p>${item.variant}&nbsp pieces</p>`
+                    : item.productCategory == "Tray" ?
+                        `<p>${item.variant}&nbsp kg</p>`
+                        : item.productCategory == "Package" ?
+                            `<p>${item.variant}&nbsp kg</p>`
+                            : item.productCategory == "Cake"
+                                `<p>${item.variant}&nbsp cm</p>`
+                }
                 <button type="button" class="btn btn-primary2 btn-sm me-1 mb-2"
                     onclick="remove()" data-mdb-toggle="tooltip">
                     <i class="fas fa-trash"></i>
@@ -45,7 +55,7 @@ function getitems() {
                     </button>
 
                     <div class="form-outline">
-                        <input id="form1" min="0" name="quantity" value="1" type="number"
+                        <input id="form1" min="0" name="quantity" value="${item.quantity}" type="number"
                             class="form-control" />
                         <label class="form-label" for="form1">Quantity</label>
                     </div>
@@ -55,23 +65,38 @@ function getitems() {
                     </button>
                 </div>
                 <p id="price" class="text-start text-md-center ml63">
-                    <strong>$17.99</strong>
+                    <strong>SAR&nbsp${item.price}</strong>
                 </p>
             </div>
-        </div>`
-            })
-            ).join("")
+        </div>`).join("")
 
+            document.getElementById("products-card").innerHTML = data;
 
-
-
-
-
-
-
-
-
-
+// -----------------summary--------------------------
+            const total=response.data.data.totalCartPrice;
+            let data2=`<ul class="list-group list-group-flush">
+            <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                Products
+                <span id="product-price">SAR&nbsp${total}</span>
+            </li>
+            <li
+                class="list-group-item d-flex justify-content-between align-items-center px-0">
+                Shipping
+                <span class="d-block" id="num">Not Included</span>
+            </li>
+            <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div>
+                    <strong>Total amount</strong>
+                    <strong>
+                        <p class="mb-0">(including VAT)</p>
+                    </strong>
+                </div>
+                <span><strong id="final-price">SAR&nbsp${total}</strong></span>
+            </li>
+        </ul>`
+            document.getElementById("summary").innerHTML = data2;
 
 
 

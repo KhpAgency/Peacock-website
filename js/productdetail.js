@@ -43,7 +43,7 @@ async function getboxes() {
                     <div class="sizes mt-5">
                         <h6 class="text-uppercase">Number of pieces</h6> 
                         <select >
-                        <option disabled selected="selected">Choose...</option>
+                        <option disabled selected>Choose...</option>
                         ${data.data.pieces.map((piece) =>`
                             <option  value="${piece}" >${piece} pieces</option>
 
@@ -82,7 +82,7 @@ function collectFormData(form) {
             Authorization: `Bearer ${localStorage.getItem("token")}`
         },
         url: baseUrl,
-        data: { productCategory: localStorage.getItem("productCategory"), productID: localStorage.getItem("id"), variant: localStorage.getItem("variant"), price: localStorage.getItem("price") },
+        data: { productCategory: localStorage.getItem("productCategory"), productID: localStorage.getItem("id"), variant: localStorage.getItem("variant").toString(), price: localStorage.getItem("price") },
     };
 
     axios
@@ -118,179 +118,213 @@ function collectFormData(form) {
 }
 
 
-// async function getTrays() {
-//     let productDetails = localStorage.getItem('id');
-//     // console.log(productDetails);
-//     let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/trays/${productDetails}`);
+async function getTrays() {
+    let productDetails = localStorage.getItem('id');
+    let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/trays/${productDetails}`);
 
-//     console.log(data.data);
-//     let dataRow = `
-//         <div class="row">
-//             <div class="col-md-6">
-//                 <div class="container mob-bg gallery">
-//                     <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
-//                         ${data.data.images.map((img) => `<img src="${img}">`).join("")}
-//                     </div>
-//                 </div>
-//             </div>
+    // console.log(data.data);
+    let dataRow = `
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container mob-bg gallery">
+                    <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
+                        ${data.data.images.map((img) => `<img src="${img}">`).join("")}
+                    </div>
+                </div>
+            </div>
 
-//             <div class="col-md-6">
-//                 <div class="p-4">
-//                     ${data.data.discountedPrice ? `
-//                         <div class="mt-4 mb-3"> 
-//                             <h5 class="text-uppercase" id="title">${data.data.title}</h5>
-//                             <div class="price d-flex flex-row align-items-center"> 
-//                                 <span class="act-price" id="price">SAR&nbsp;${data.data.discountedPrice}</span>
-//                                 <div class="ms-1"> 
-//                                     <small class="dis-price">SAR&nbsp;${data.data.price}</small>
-//                                 </div>
-//                             </div>
-//                         </div>` :
-//             `
-//                         <div class="mt-4 mb-3"> 
-//                             <h5 class="text-uppercase" id="title">${data.data.title}</h5>
-//                             <div class="price d-flex flex-row align-items-center"> 
-//                                 <span class="act-price" id="price">SAR&nbsp;${data.data.price}</span>
-//                             </div>
-//                         </div>`
-//         }
-//                     <p class="about">${data.data.description}</p>
-//                     <div class="sizes mt-5">
-//                         <h6 class="text-uppercase">Weight</h6> 
-//                         ${data.data.weight.map((weight) =>
-//             `<label class="radio"> 
-//                             <input type="radio" name="size" value="${weight}" id="radio" checked>
-//                             <span>${weight}&nbsp;kg</span>
-//                             </label>`).join("")}
+            <div class="col-md-6">
+                <div class="p-4">
+                    ${data.data.discountedPrice ? `
+                        <div class="mt-4 mb-3"> 
+                            <h5 class="text-uppercase" id="title">${data.data.title}</h5>
+                            <div class="price d-flex flex-row align-items-center"> 
+                                <span class="act-price" id="price">SAR&nbsp;${data.data.discountedPrice}</span>
+                                <div class="ms-1"> 
+                                    <small class="dis-price">SAR&nbsp;${data.data.price}</small>
+                                </div>
+                            </div>
+                        </div>` :
+            `
+                        <div class="mt-4 mb-3"> 
+                            <h5 class="text-uppercase" id="title">${data.data.title}</h5>
+                            <div class="price d-flex flex-row align-items-center"> 
+                                <span class="act-price" id="price">SAR&nbsp;${data.data.price}</span>
+                            </div>
+                        </div>`
+        }
+                    <p class="about">${data.data.description}</p>
+                    <form method="POST" id="form1">
+                    <div class="sizes mt-5">
+                        <h6 class="text-uppercase">Weight</h6> 
+                        <select >
+                        <option disabled selected>Choose...</option>
+                        ${data.data.weight.map((weight) =>`
+                            <option value="${weight}" selected>${weight} kg</option>
+                        `).join("")}
+                        </select>
+                    </div>
+                    <div class="cart mt-4 align-items-center">
+                        <button id="add" type="submit" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                    </div>
 
-//                     </div>
-//                     <div class="cart mt-4 align-items-center">
-//                         <button id="add" onclick="addToCart()" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>`;
+                    </form>
 
-//     document.getElementById('card1').innerHTML = dataRow;
-//     initFotorama(); // Initialize fotorama after setting the HTML content
-// }
-// getTrays();
+                </div>
+            </div>
+        </div>`;
 
-// async function getpackages() {
-//     let productDetails = localStorage.getItem('id');
-//     // console.log(productDetails);
-//     let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/packages/${productDetails}`);
+    document.getElementById('card1').innerHTML = dataRow;
+    initFotorama(); // Initialize fotorama after setting the HTML content
+    let form = document.getElementById("form1");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        collectFormData(form);
+    });
 
-//     console.log(data.data);
-//     let dataRow = `
-//         <div class="row">
-//             <div class="col-md-6">
-//                 <div class="container mob-bg gallery">
-//                     <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
-//                         ${data.data.images.map((img) => `<img src="${img}">`).join("")}
-//                     </div>
-//                 </div>
-//             </div>
+    let selectElement = document.querySelector("#form1 select");
+    selectElement.addEventListener("change", setVariant);
 
-//             <div class="col-md-6">
-//                 <div class="p-4">
-//                     ${data.data.discountedPrice ? `
-//                         <div class="mt-4 mb-3"> 
-//                             <h5 class="text-uppercase" id="title">${data.data.title}</h5>
-//                             <div class="price d-flex flex-row align-items-center"> 
-//                                 <span class="act-price" id="price">SAR&nbsp;${data.data.discountedPrice}</span>
-//                                 <div class="ms-1"> 
-//                                     <small class="dis-price">SAR&nbsp;${data.data.price}</small>
-//                                 </div>
-//                             </div>
-//                         </div>` :
-//             `
-//                         <div class="mt-4 mb-3"> 
-//                             <h5 class="text-uppercase" id="title">${data.data.title}</h5>
-//                             <div class="price d-flex flex-row align-items-center"> 
-//                                 <span class="act-price" id="price">SAR&nbsp;${data.data.price}</span>
-//                             </div>
-//                         </div>`
-//         }
-//                     <p class="about">${data.data.description}</p>
-//                     <div class="sizes mt-5">
-//                         <h6 class="text-uppercase">Weight Of Each Tray in The Package</h6> 
-//                         ${data.data.weight.map((weight) =>
-//             `<label class="radio"> 
-//                             <input type="radio" name="size" value="${weight}" id="radio" checked>
-//                             <span>${weight}&nbsp;kg</span>
-//                             </label>`).join("")}
+}
+getTrays();
 
-//                     </div>
-//                     <div class="cart mt-4 align-items-center">
-//                         <button id="add" onclick="addToCart()" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>`;
+async function getpackages() {
+    let productDetails = localStorage.getItem('id');
+    let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/packages/${productDetails}`);
 
-//     document.getElementById('card1').innerHTML = dataRow;
-//     initFotorama(); // Initialize fotorama after setting the HTML content
-// }
-// getpackages();
+    let dataRow = `
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container mob-bg gallery">
+                    <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
+                        ${data.data.images.map((img) => `<img src="${img}">`).join("")}
+                    </div>
+                </div>
+            </div>
 
-// async function getcakes() {
-//     let productDetails = localStorage.getItem('id');
-//     // console.log(productDetails);
-//     let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/cakes/${productDetails}`);
+            <div class="col-md-6">
+                <div class="p-4">
+                    ${data.data.discountedPrice ? `
+                        <div class="mt-4 mb-3"> 
+                            <h5 class="text-uppercase" id="title">${data.data.title}</h5>
+                            <div class="price d-flex flex-row align-items-center"> 
+                                <span class="act-price" id="price">SAR&nbsp;${data.data.discountedPrice}</span>
+                                <div class="ms-1"> 
+                                    <small class="dis-price">SAR&nbsp;${data.data.price}</small>
+                                </div>
+                            </div>
+                        </div>` :
+            `
+                        <div class="mt-4 mb-3"> 
+                            <h5 class="text-uppercase" id="title">${data.data.title}</h5>
+                            <div class="price d-flex flex-row align-items-center"> 
+                                <span class="act-price" id="price">SAR&nbsp;${data.data.price}</span>
+                            </div>
+                        </div>`
+        }
+                    <p class="about">${data.data.description}</p>
+                    <form method="POST" id="form1">
 
-//     console.log(data.data);
-//     let dataRow = `
-//         <div class="row">
-//             <div class="col-md-6">
-//                 <div class="container mob-bg gallery">
-//                     <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
-//                         ${data.data.images.map((img) => `<img src="${img}">`).join("")}
-//                     </div>
-//                 </div>
-//             </div>
+                    <div class="sizes mt-5">
+                        <h6 class="text-uppercase">Weight of each tray</h6> 
+                        <select >
+                        <option disabled selected>Choose...</option>
+                            ${data.data.weight.map((weight) =>`
+                            <option  value="${weight}" >${weight} kg</option>
 
-//             <div class="col-md-6">
-//                 <div class="p-4">
-//                     ${data.data.discountedPrice ? `
-//                         <div class="mt-4 mb-3"> 
-//                             <h5 class="text-uppercase" id="title">${data.data.title}</h5>
-//                             <div class="price d-flex flex-row align-items-center"> 
-//                                 <span class="act-price" id="price">SAR&nbsp;${data.data.discountedPrice}</span>
-//                                 <div class="ms-1"> 
-//                                     <small class="dis-price">SAR&nbsp;${data.data.price}</small>
-//                                 </div>
-//                             </div>
-//                         </div>` :
-//             `
-//                         <div class="mt-4 mb-3"> 
-//                             <h5 class="text-uppercase" id="title">${data.data.title}</h5>
-//                             <div class="price d-flex flex-row align-items-center"> 
-//                                 <span class="act-price" id="price">SAR&nbsp;${data.data.price}</span>
-//                             </div>
-//                         </div>`
-//         }
-//                     <p class="about">${data.data.description}</p>
-//                     <div class="sizes mt-5">
-//                         <h6 class="text-uppercase">Size Of The Cake</h6> 
-//                         ${data.data.size.map((size) =>
-//             `<label class="radio"> 
-//                             <input type="radio" name="size" value="${size}" id="radio" checked>
-//                             <span>${size}&nbsp;cm</span>
-//                             </label>`).join("")}
+                        `).join("")}
+                        </select>
+                    </div>
+                    <div class="cart mt-4 align-items-center">
+                        <button type="submit" id="add" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                    </div>
 
-//                     </div>
-//                     <div class="cart mt-4 align-items-center">
-//                         <button id="add" onclick="addToCart()" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>`;
+                    </form>
+                </div>
+            </div>
+        </div>`;
 
-//     document.getElementById('card1').innerHTML = dataRow;
-//     initFotorama(); // Initialize fotorama after setting the HTML content
-// }
-// getcakes();
+    document.getElementById('card1').innerHTML = dataRow;
+    initFotorama(); // Initialize fotorama after setting the HTML content
+     let form = document.getElementById("form1");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        collectFormData(form);
+    });
+
+    let selectElement = document.querySelector("#form1 select");
+    selectElement.addEventListener("change", setVariant);
+}
+getpackages();
+
+async function getcakes() {
+    let productDetails = localStorage.getItem('id');
+    let { data } = await axios.get(`https://peacock-api-ixpn.onrender.com/api/v1/cakes/${productDetails}`);
+
+    let dataRow = `
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container mob-bg gallery">
+                    <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
+                        ${data.data.images.map((img) => `<img src="${img}">`).join("")}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="p-4">
+                    ${data.data.discountedPrice ? `
+                        <div class="mt-4 mb-3"> 
+                            <h5 class="text-uppercase" id="title">${data.data.title}</h5>
+                            <div class="price d-flex flex-row align-items-center"> 
+                                <span class="act-price" id="price">SAR&nbsp;${data.data.discountedPrice}</span>
+                                <div class="ms-1"> 
+                                    <small class="dis-price">SAR&nbsp;${data.data.price}</small>
+                                </div>
+                            </div>
+                        </div>` :
+            `
+                        <div class="mt-4 mb-3"> 
+                            <h5 class="text-uppercase" id="title">${data.data.title}</h5>
+                            <div class="price d-flex flex-row align-items-center"> 
+                                <span class="act-price" id="price">SAR&nbsp;${data.data.price}</span>
+                            </div>
+                        </div>`
+        }
+                    <p class="about">${data.data.description}</p>
+                    <form method="POST" id="form1">
+
+                    <div class="sizes mt-5">
+                        <h6 class="text-uppercase">Size</h6> 
+                        <select >
+                        <option disabled selected>Choose...</option>
+                            ${data.data.size.map((size) =>`
+                            <option  value="${size}" >${size} cm</option>
+
+                        `).join("")}
+                        </select>
+                    </div>
+                    <div class="cart mt-4 align-items-center">
+                        <button type="submit" id="add" class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>`;
+
+    document.getElementById('card1').innerHTML = dataRow;
+    initFotorama(); // Initialize fotorama after setting the HTML content
+     let form = document.getElementById("form1");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        collectFormData(form);
+    });
+
+    let selectElement = document.querySelector("#form1 select");
+    selectElement.addEventListener("change", setVariant);
+}
+getcakes();
 
 function initFotorama() {
     $('.fotorama').fotorama(); // Initialize fotorama component
