@@ -1,3 +1,9 @@
+strong {
+    font-weight: revert !important;
+}
+.imgh{
+    height: 210px;
+}
 .dropdown-menu {
     --mdb-dropdown-color: white !important;
     --mdb-dropdown-bg: none !important;
@@ -80,11 +86,11 @@
     background-color: #e37e69 !important;
 }
 
-.titlef{
+.titlef {
     font-weight: 400;
 }
 
-.imgheight{
+.imgheight {
     height: 185px;
 }
 
@@ -265,11 +271,11 @@
 
 /* cart icon end */
 
-.dnone{
+.dnone {
     display: none;
 }
 
-.empty{
+.empty {
     text-align: center;
     padding: 20px;
     font-size: 18px;
@@ -300,17 +306,19 @@
     }
 
 }
+
 @media screen and (min-width: 1199.98px) {
     .header_nav {
         margin-top: 15px;
     }
-/* 
+
+    /* 
     .mb50 {
         margin-bottom: 50px;
     } */
 }
 
-.notification{
+.notification {
     background-color: red;
     position: fixed;
     width: 15px;
@@ -320,7 +328,8 @@
     z-index: 102;
     border-radius: 50%;
 }
-.num{
+
+.num {
     font-size: 12px;
     margin-left: 4px;
     margin-top: -2px;
