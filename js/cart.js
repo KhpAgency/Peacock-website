@@ -13,6 +13,7 @@ function getitems() {
 
     axios.request(options)
         .then(function (response) {
+            console.log(response);
             const cart = response.data.data.cartItems
             let data = cart.map((item) =>
                 // console.log(response.data.data)
@@ -32,7 +33,6 @@ function getitems() {
             <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                 <p><strong>${item.productID.title}</strong></p>
                 <p>${item.productID.description}</p>
-
                 ${item.productCategory == "ChocolateBox" ?
                     `<p>${item.variant}&nbsp pieces</p>`
                     : item.productCategory == "Tray" ?
@@ -65,7 +65,7 @@ function getitems() {
                     </button>
                 </div>
                 <p id="price" class="text-start text-md-center ml63">
-                    <strong>SAR&nbsp${item.price}</strong>
+                    <strong>SAR&nbsp${item.price*item.quantity}</strong>
                 </p>
             </div>
         </div>`).join("")
@@ -97,12 +97,17 @@ function getitems() {
             </li>
         </ul>`
             document.getElementById("summary").innerHTML = data2;
-
-
-
-        }).catch(function (error) {
-            console.error(error);
-        });
+            document.getElementById("summarycol").style.display="block";
+            document.getElementById("cartcard").style.display="block";
+            
+            
+            
+        }).catch((err)=>{
+            let element = `<P class="empty">Your cart is empty!</P>`
+            document.getElementById("products-card").innerHTML = element;
+            document.getElementById("cartcard").style.display="block";
+            document.getElementById("cartcard").style.width="855px";
+        })
 
 
 

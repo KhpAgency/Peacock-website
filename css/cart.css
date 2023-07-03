@@ -265,6 +265,17 @@
 
 /* cart icon end */
 
+.dnone{
+    display: none;
+}
+
+.empty{
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .form-control {
     line-height: 2.6 !important;
     text-align: center;
