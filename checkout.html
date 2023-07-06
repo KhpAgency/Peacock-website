@@ -19,7 +19,7 @@
     <!-- <link rel="stylesheet" href="css/shop.css" /> -->
     <link rel="stylesheet" href="css/cart.css" />
     <link rel="stylesheet" href="css/checkout.css" />
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!-- <link rel="stylesheet" href="css/product_details.css" /> -->
@@ -291,7 +291,7 @@
                         </div>
                     </li>
                 </ul>
-               
+
             </nav>
             <button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
                 aria-controls="headerMenu" aria-expanded="false" type="button">
@@ -340,8 +340,9 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor
                             in, mattis vitae leo.</p>
                     </div> -->
-                    <form>
-                        <div class="products" >
+                    <form id="form8" class="w900">
+                        <div class="products">
+                            <input id="cartIDs" type="text" value=""  hidden>
                             <h3 class="title">Checkout</h3>
                             <div id="orderproducts"></div>
                             <!-- <div class="item">
@@ -358,9 +359,42 @@
                             <!-- <div class="total">Total<span class="price">SAR&nbsp;320</span></div> -->
                         </div>
                         <div class="card-details">
-                            <h3 class="title">Credit Card Details</h3>
+                            <h3 class="title">Shipping details</h3>
                             <div class="row">
-                                <div class="form-group col-sm-7">
+                                <div class="form-group col-sm-12">
+                                    <label class="label2">Choose your shipping address</label>
+
+                                    <div id="details">
+
+                                        <div id="accordion">
+                                            <!-- <div class="card">
+                                              <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Collapsible Group Item #1
+                                                  </button>
+                                                </h5>
+                                              </div>
+                                          
+                                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                </div>
+                                              </div>
+                                            </div> -->
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                </div>
+                                <!-- <div class="form-group col-sm-12">
+                                    <button type="button" class="btn btn-primary btn-block">Proceed</button>
+                                </div>  -->
+                                <!-- <div class="form-group col-sm-7">
                                     <label for="card-holder">Card Holder</label>
                                     <input id="card-holder" type="text" class="form-control" placeholder="Card Holder"
                                         aria-label="Card Holder" aria-describedby="basic-addon1">
@@ -384,10 +418,48 @@
                                     <label for="cvc">CVC</label>
                                     <input id="cvc" type="text" class="form-control" placeholder="CVC"
                                         aria-label="Card Holder" aria-describedby="basic-addon1">
+                                </div>-->
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <h3 class="title">Payment method</h3>
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <div class="custom-control custom-checkbox mb-3 p-0">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck" checked
+                                            name="example1">
+                                        <label class="custom-control-label" for="customCheck">Cash on delivery</label>
+                                    </div>
+
                                 </div>
                                 <div class="form-group col-sm-12">
-                                    <button type="button" class="btn btn-primary btn-block">Proceed</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Proceed</button>
                                 </div>
+                                <!-- <div class="form-group col-sm-7">
+                                    <label for="card-holder">Card Holder</label>
+                                    <input id="card-holder" type="text" class="form-control" placeholder="Card Holder"
+                                        aria-label="Card Holder" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="form-group col-sm-5">
+                                    <label for="">Expiration Date</label>
+                                    <div class="input-group expiration-date">
+                                        <input type="text" class="form-control" placeholder="MM" aria-label="MM"
+                                            aria-describedby="basic-addon1">
+                                        <span class="date-separator">/</span>
+                                        <input type="text" class="form-control" placeholder="YY" aria-label="YY"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-8">
+                                    <label for="card-number">Card Number</label>
+                                    <input id="card-number" type="text" class="form-control" placeholder="Card Number"
+                                        aria-label="Card Holder" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="cvc">CVC</label>
+                                    <input id="cvc" type="text" class="form-control" placeholder="CVC"
+                                        aria-label="Card Holder" aria-describedby="basic-addon1">
+                                </div>-->
                             </div>
                         </div>
                     </form>
@@ -396,8 +468,10 @@
         </div>
     </main>
 
-   <div>
-        <span class="notification"><p class="num">0</p></span>
+    <div>
+        <span class="notification">
+            <p class="num">0</p>
+        </span>
         <a href="cart.html" class="float">
             <img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
         </a>
@@ -546,7 +620,7 @@
     <script src="js/common.min.js"></script>
     <script src="js/usericon.js"></script>
     <script src="js/checkout.js"></script>
-    
+
     <!-- <script src="js/map.min.js"></script>
         <script src="js/timerscript.js"></script> -->
 
