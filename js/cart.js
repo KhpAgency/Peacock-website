@@ -47,9 +47,9 @@ function getitems() {
                         `<p>${item.variant}&nbsp pieces</p>`
                         : item.productCategory == "Tray" ?
                             `<p>${item.variant}&nbsp kg</p>`
-                            : item.productCategory == "Package" ?
+                            : item.productCategory == "Packages" ?
                                 `<p>${item.variant}&nbsp kg</p>`
-                                : item.productCategory == "Cake"
+                                : item.productCategory == "Cake" &&
                                     `<p>${item.variant}&nbsp cm</p>`
                     }
                     <button type="button" class="btn btn-primary2 btn-sm me-1 mb-2"
@@ -121,12 +121,15 @@ function getitems() {
 
 
 
-        }).catch((err) => {
+        })
+        .catch((err) => {
+            console.log(err);
             let element = `<P class="empty">Your cart is empty!</P>`
             document.getElementById("products-card").innerHTML = element;
             document.getElementById("cartcard").style.display = "block";
             document.getElementById("cartcard").style.width = "855px";
-        })
+        }
+        )
 
 
 

@@ -20,9 +20,9 @@ function getorderitems() {
                     `<p>${item.variant}&nbsp pieces</p>`
                     : item.productCategory == "Tray" ?
                         `<p>${item.variant}&nbsp kg</p>`
-                        : item.productCategory == "Package" ?
+                        : item.productCategory == "Packages" ?
                             `<p>${item.variant}&nbsp kg</p>`
-                            : item.productCategory == "Cake"
+                            : item.productCategory == "Cake" &&
                                 `<p>${item.variant}&nbsp cm</p>`
                 }
                 </p>
@@ -38,12 +38,11 @@ function getorderitems() {
                 `
             <div id="accordion">
             
-            ${response.data.data.user.addresses.map((address) => {
-                    getID(address._id);
-                    return `<div class="card mb-2">
-                <div class="card-header" id="headingOne">
+            ${response.data.data.user.addresses.map((address) => 
+                     `<div class="card mb-2" onclick="getID('${address._id}')">
+                <div class="card-header" id="headingOne" >
                     <label class="labelstyle" data-toggle="collapse" data-target="#${address._id}" aria-expanded="true" aria-controls="collapseOne">
-                    <input id="aliasinput" type="radio" value="${address.alias}" class=" radioclass" name="optradio" required>${address.alias}
+                    <input id="alias_${address._id}" type="radio" value="${address.alias}" class=" radioclass" name="optradio" required>${address.alias}
                     </label>
                 </div>
             
@@ -58,7 +57,7 @@ function getorderitems() {
                   </div>
                 </div>
               </div>`
-                }).join("")}
+                ).join("")}
                 
                 </div>`
             document.getElementById("details").innerHTML = data4;
@@ -75,22 +74,20 @@ function getorderitems() {
 }
 getorderitems();
 
-var addressId
 
 function getID(addressID) {
-    addressId = addressID
+    console.log(addressID);
+    localStorage.setItem("addressID", addressID)
 }
 const form = document.getElementById("form8");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     collectFormData();
-    console.log("kjhgfds");
 });
 
 
 function collectFormData() {
 
-        console.log(document.getElementById("cartIDs").value);
         let id = document.getElementById("cartIDs").value;
 
 
@@ -107,9 +104,9 @@ function collectFormData() {
             url: baseUrl,
             data: {
                 shippingAddress: {
-                    alias: document.getElementById("aliasinput").value,
-                    details: document.getElementById(`addressdetails_${addressId}`).innerHTML,
-                    phone: document.getElementById(`addressphone_${addressId}`).innerHTML,
+                    alias: document.getElementById(`alias_${localStorage.getItem("addressID")}`).value,
+                    details: document.getElementById(`addressdetails_${localStorage.getItem("addressID")}`).innerHTML,
+                    phone: document.getElementById(`addressphone_${localStorage.getItem("addressID")}`).innerHTML,
                 }
             },
         };
