@@ -11,7 +11,7 @@ function addAuthorizationHeader() {
                     aria-controls="contactsMenu" rel="noopener noreferrer" style="width: 40px;height: 40px;">
                     <i class="icon2-user icon2"></i>
                 </a>
-                <div class="dropdown-menu collapse" id="contactsMenu">
+                <div class="dropdown-menu" id="contactsMenu">
                     <ul class="dropdown-list" style="background-color: #A8C7C7;">
                         <li class="list-item" style="background-color: #A8C7C7;">
                             <a class="dropdown-item nav-item" data-page="reservations"

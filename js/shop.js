@@ -15,14 +15,14 @@ async function getchocolateBox() {
     <div class="col-md-3 col-sm-6 mb-4">
     <div class="product-grid">
     ${product.discountedPrice ? `<div class="product-image">
-    <a href="product_detail.html" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.discountedPrice}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
     <span class="product-sale-label">sale!</span>
     
     </div>` : `<div class="product-image">
-    <a href="product_detail.html" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
@@ -61,14 +61,14 @@ async function getTrays() {
     <div class="col-md-3 col-sm-6 mb-4">
     <div class="product-grid">
     ${product.discountedPrice ? `<div class="product-image">
-    <a href="#" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.discountedPrice}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
     <span class="product-sale-label">sale!</span>
     
     </div>` : `<div class="product-image">
-    <a href="#" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
@@ -101,14 +101,14 @@ async function getPackages() {
     <div class="col-md-3 col-sm-6 mb-4">
     <div class="product-grid">
     ${product.discountedPrice ? `<div class="product-image">
-    <a href="#" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.discountedPrice}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
     <span class="product-sale-label">sale!</span>
     
     </div>` : `<div class="product-image">
-    <a href="#" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
@@ -141,14 +141,14 @@ async function getCakes() {
     <div class="col-md-3 col-sm-6 mb-4">
     <div class="product-grid">
     ${product.discountedPrice ? `<div class="product-image">
-    <a href="#" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.discountedPrice}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
     <span class="product-sale-label">sale!</span>
    
     </div>` : `<div class="product-image">
-    <a href="#" class="image">
+    <a href="product_detail.html" onclick="setID('${product._id}','${product.categoryName}','${product.pieces}','${product.price}')" class="image">
         <img class="pic-1" src="${product.images[0]}">
         <img class="pic-2" src="${product.images[1]}">
     </a>
