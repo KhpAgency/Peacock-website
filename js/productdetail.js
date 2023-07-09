@@ -36,7 +36,7 @@ async function getItems() {
         <div class="row">
             <div class="col-md-6">
                 <div class="container mob-bg gallery">
-                    <div class="fotorama" data-width="100%" data-height="70%" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
+                    <div class="fotorama" data-minwidth="600" data-fit="cover" data-width="100%" data-height="70%" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
                         ${data.data.images.map((img) => `<img src="${img}">`).join("")}
                     </div>
                 </div>
