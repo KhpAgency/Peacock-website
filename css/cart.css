@@ -1,9 +1,16 @@
+.usericoncart {
+    padding-left: 0px;
+    line-height: 37px;
+}
+
 strong {
     font-weight: revert !important;
 }
-.imgh{
+
+.imgh {
     height: 210px;
 }
+
 .dropdown-menu {
     --mdb-dropdown-color: white !important;
     --mdb-dropdown-bg: none !important;

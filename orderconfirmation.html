@@ -5,27 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Peacock | Product details</title>
+    <title>Peacock | Order confirmation</title>
     <!-- <link rel="icon" href="img/logo1.png" type="image/x-icon"> -->
 
     <!-- <script id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js"
         async=""></script> -->
     <!-- <script src="https://www.youtube.com/player_api"></script> -->
-    <link rel="stylesheet" href="css/preload.min.css" />
-    <link rel="stylesheet" href="css/icomoon.css" />
-    <link rel="stylesheet" href="css/libs.min.css" />
+    <link rel="stylesheet preload" as="style" href="css/preload.min.css" />
+    <link rel="stylesheet preload" as="style" href="css/icomoon.css" />
+    <link rel="stylesheet preload" as="style" href="css/libs.min.css" />
 
-    <link rel="stylesheet" href="css/cart_icon.css">
     <link rel="stylesheet" href="css/contacts.min.css" />
-    <link rel="stylesheet" href="css/shop.css" />
-    <link rel="stylesheet" href="css/product_details.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/shop.css" /> -->
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
 
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" href="css/product_details.css" /> -->
+
 
     <!-- Fotorama from CDNJS, 19 KB -->
-
-
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> -->
 
 
     <!-- <link rel="stylesheet" href="css/cardstyle.css"> -->
@@ -191,7 +193,6 @@
                             </span>
 
                         </a>
-
                     </li>
                     <li class="header_nav-list_item">
                         <a class="nav-item nav-link" href="shop.html" data-page="services" data-single="true">
@@ -331,70 +332,50 @@
         <img src="img/headers-02.jpg" alt="" style="position: absolute;">
     </div> -->
 
-    <main>
-        <div class="info section--nopb" style="padding-top: 10%;">
-
-            <div class="mt5 mb5 mt-mob">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-10">
-                        <div class="card" id="card1">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="container mob-bg gallery">
-                                        <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs"
-                                            data-thumbwidth="155px"><img src="">
-                                        </div>
+    <main class="page payment-page mt30">
+        <div class="info section--nopb" style="padding-top: 15%;">
+            <section class="payment-form dark">
+                <div class="container d-block">
+                    <div class="card-details">
+                        <div class="vh-100 d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <div class="border2"></div>
+                                <div class="card  bg-white shadow p-5">
+                                    <div class="mb-4 text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75"
+                                            height="75" fill="currentColor" class="bi bi-check-circle"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path
+                                                d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                                        </svg>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-4">
-                                        <div class="mt-4 mb-3">
-                                            <h5 class="text-uppercase" id="title"></h5>
-                                            <div class="price d-flex flex-row align-items-center">
-                                                <span class="act-price" id="price"></span>
-                                                <div class="ms-1">
-                                                    <small class="dis-price"></small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4 mb-3">
-                                            <h5 class="text-uppercase" id="title"></h5>
-                                            <div class="price d-flex flex-row align-items-center">
-                                                <span class="act-price" id="price"></span>
-                                            </div>
-                                        </div>
-                                        <p class="about"></p>
-                                        <form action="POST" id="form1">
-                                            <div class="sizes mt-5">
-                                                <h6 class="text-uppercase"></h6>
-                                                <select required>
-                                                    <option role="radio" value="" onselect="setVariant(e)"></option>
-                                                </select>
-                                            </div>
-                                            <div class="cart mt-4 align-items-center">
-                                                <button type="submit" id="add"
-                                                    class="btn btn-danger text-uppercase mr-2 px-4"></button>
-                                            </div>
-                                        </form>
+                                    <div class="text-center">
+                                        <h1 class="h1title">Thank You For Your Order!</h1>
+                                        <p>Your order has been submitted successfully</p>
+                                        <a href="index.html">
+                                            <button class="btn btn-primary pl-5 pr-5 mt-4">Back Home</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </section>
         </div>
     </main>
 
-    <div>
-        <span id="numberofitems" class="notification">
-            <p class="num"></p>
+    <!-- <div>
+                <span id="numberofitems" class="notification">
+            <p id="num" class="num"></p>
         </span>
+
         <a href="cart.html" class="float">
             <img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
         </a>
-    </div>
+    </div> -->
 
     <!-- footer -->
     <style>
@@ -499,34 +480,29 @@
                </ul>
            </div>
        </div> -->
-
                 <div class="col-6 col-md-4">
                     <div class="footer_block" style="margin-top: -1px;">
                         <h4 class="footer_block-title">Follow Our Activity</h4>
                         <p class="footer_block-subtitle text--md text--bold">We are in social networks</p>
                         <ul class="footer_block-socials d-flex pl-0" style="padding-bottom: 20px;">
-
                             <li class="kkk">
                                 <a class="link" href="https://twitter.com/PeacockChocola" target="_blank"
                                     rel="noopener noreferrer">
                                     <i class="icon-twitter icon"></i>
                                 </a>
                             </li>
-
                             <li class="kkk">
                                 <a class="link" href="https://www.facebook.com/Peacock-Chocolate-105713368864072"
                                     target="_blank" rel="noopener noreferrer">
                                     <i class="icon-facebook icon"></i>
                                 </a>
                             </li>
-
                             <li class="kkk">
                                 <a class="link" href="https://instagram.com/peacock_chocolate_/" target="_blank"
                                     rel="noopener noreferrer">
                                     <i class="icon-instagram icon"></i>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -536,19 +512,21 @@
             </div>
         </div>
     </footer>
+
+
+    <!-- <script src="js/cart.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/productdetail.js"></script>
-    <script src="js/usericon.js"></script>
-    <script src="js/numbercartitems.js"></script>
-    <script src="js/addtocart.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
     <script src="js/common.min.js"></script>
+    <script src="js/usericon.js"></script>
+    <script src="js/checkout.js"></script>
     <script src="js/logout.js"></script>
 
-    <!-- fotorama -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <!-- <script src="js/map.min.js"></script>
+        <script src="js/timerscript.js"></script> -->
 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script>
         fbq('track', 'ViewContent');

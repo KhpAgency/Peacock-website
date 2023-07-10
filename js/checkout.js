@@ -114,7 +114,9 @@ function collectFormData() {
             .request(options)
             .then(function (response) {
                 console.log(response.data);
-
+                if (response.data.status="success") {
+                    window.location.href = 'orderconfirmation.html';
+                }
             })
 
             .catch(function (error) {

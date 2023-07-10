@@ -9,7 +9,7 @@ function addAuthorizationHeader() {
                     data-bs-toggle="collapse" data-bs-target="#contactsMenu" data-trigger="dropdown"
                     data-page-parent="contacts" data-main-link="true" aria-expanded="false"
                     aria-controls="contactsMenu" rel="noopener noreferrer" style="width: 40px;height: 40px;">
-                    <i class="icon2-user icon2"></i>
+                    <i class="icon2-user icon2 usericonshop usericoncart"></i>
                 </a>
                 <div class="dropdown-menu" id="contactsMenu">
                     <ul class="dropdown-list" style="background-color: #A8C7C7;">
@@ -21,7 +21,7 @@ function addAuthorizationHeader() {
                         </li>
                         <li class="list-item" style="background-color: #A8C7C7;">
                             <a class="dropdown-item nav-item" data-page="reservations"
-                                data-page-parent="contacts" href="#">
+                                data-page-parent="contacts" href="#" onclick="logout()">
                                 Logout
                             </a>
                         </li>
@@ -31,6 +31,7 @@ function addAuthorizationHeader() {
         </ul>`;
         var parentElement = document.getElementById("headerMenu");
         parentElement.appendChild(newElement);
+        document.getElementById("registerbutton").style.display="none";
     }
 
     return { authorization: `Bearer ${token}` };

@@ -7,8 +7,8 @@ form.addEventListener("submit", function (event) {
 
 });
 
-function redirct() {
-  window.location.href = "index.html"
+function redirect() {
+  window.location.href = "index.html";
 }
 
 function clearForm() {
@@ -43,9 +43,9 @@ function collectFormData() {
         },
         
       }).showToast();
-      clearForm();
-      // setTimeout(redirct(), 100000);
-
+      // clearForm();
+      setTimeout(redirect, 2000);
+      
     })
 
     .catch(function (error) {
