@@ -1,3 +1,5 @@
+
+
 const setID =(id,category,variant,price) => {
     localStorage.setItem("id", id);
     localStorage.setItem("productCategory",category.replace(' ', ''));

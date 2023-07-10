@@ -1,31 +1,8 @@
+let baseUrl = "https://peacock-api-ixpn.onrender.com/api/v1/cart";
 
 function setVariant(e) {
     localStorage.setItem('variant', e.target.value)
 }
-
-// function getcategory() {
-//     let baseUrl = "https://peacock-api-ixpn.onrender.com/api/v1/cart";
-
-//     const options = {
-//         method: "GET",
-//         headers: {
-//             Authorization: `Bearer ${localStorage.getItem("token")}`
-//         },
-//         url: baseUrl,
-//     };
-
-//     axios.request(options)
-//         .then(function (response) {
-//             console.log(response);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         }
-//         )
-
-// }
-// getcategory();
-
 
 
 async function getItems() {
@@ -36,8 +13,8 @@ async function getItems() {
         <div class="row">
             <div class="col-md-6">
                 <div class="container mob-bg gallery">
-                    <div class="fotorama" data-minwidth="600" data-fit="cover" data-width="100%" data-height="70%" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
-                        ${data.data.images.map((img) => `<img src="${img}">`).join("")}
+                <div class="fotorama" data-minwidth="600" data-fit="cover" data-width="100%" data-height="70%" data-allowfullscreen="true" data-nav="thumbs" data-thumbwidth="155px">
+                ${data.data.images.map((img) => `<img src="${img}">`).join("")}
                     </div>
                 </div>
             </div>
@@ -66,31 +43,31 @@ async function getItems() {
                     <form method="POST" id="form1">
 
                     <div class="sizes mt-5">
-                        ${productCat== "ChocolateBox" ?  `<h6 class="text-uppercase">Number of pieces</h6> 
+                        ${productCat == "ChocolateBox" ? `<h6 class="text-uppercase">Number of pieces</h6> 
                         <select >
                         <option disabled selected>Choose...</option>
-                        ${data.data.pieces.map((item) =>`
+                        ${data.data.pieces.map((item) => `
                             <option  value="${item}" >${item} pieces</option>
     
                         `).join("")}
-                        </select>`: productCat== "Tray" ? `<h6 class="text-uppercase">Tray Weight</h6> 
+                        </select>`: productCat == "Tray" ? `<h6 class="text-uppercase">Tray Weight</h6> 
                         <select >
                         <option disabled selected>Choose...</option>
-                        ${data.data.weight.map((item) =>`
+                        ${data.data.weight.map((item) => `
                             <option  value="${item}" >${item} KG</option>
     
                         `).join("")}
-                        </select>` : productCat== "Packages" ? `<h6 class="text-uppercase">Weight of each tray</h6> 
+                        </select>` : productCat == "Packages" ? `<h6 class="text-uppercase">Weight of each tray</h6> 
                         <select >
                         <option disabled selected>Choose...</option>
-                        ${data.data.weight.map((item) =>`
+                        ${data.data.weight.map((item) => `
                             <option  value="${item}" >${item} KG</option>
     
                         `).join("")}
-                        </select>` :productCat== "Cake" && `<h6 class="text-uppercase">Cake Size</h6> 
+                        </select>` : productCat == "Cake" && `<h6 class="text-uppercase">Cake Size</h6> 
                         <select >
                         <option disabled selected>Choose...</option>
-                        ${data.data.size.map((item) =>`
+                        ${data.data.size.map((item) => `
                             <option  value="${item}" >${item} CM</option>
     
                         `).join("")}
@@ -110,6 +87,7 @@ async function getItems() {
         </div>`;
     document.getElementById('card1').innerHTML = dataRow;
     initFotorama(); // Initialize fotorama after setting the HTML content
+
     let form = document.getElementById("form1");
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -138,6 +116,9 @@ function collectFormData(form) {
         .request(options)
         .then(function (response) {
             console.log(response.data);
+            let number = response.data.numOfCartItems;
+            let data = `<p class="num">${number}</p>`;
+            document.getElementById("numberofitems").innerHTML = data;
             // Toastify({
             //     text: "Product added to cart!",
             //     className: "info",
@@ -147,13 +128,14 @@ function collectFormData(form) {
             //     },
 
             // }).showToast();
-            clearForm();
+            // clearForm();
             // setTimeout(redirct(), 100000);
 
         })
 
         .catch(function (error) {
             console.error(error);
+
             // Toastify({
             //     text: error.response.data.message,
             //     className: "info",

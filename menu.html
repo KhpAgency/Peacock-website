@@ -315,7 +315,7 @@
                         </div>
                     </li>
                 </ul>
-                
+
             </nav>
             <button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
                 aria-controls="headerMenu" aria-expanded="false" type="button">
@@ -917,9 +917,11 @@
             <!-- menu content end -->
     </main>
 
-    
-   <div>
-        <span class="notification"><p class="num">0</p></span>
+
+    <div>
+        <span id="numberofitems" class="notification">
+            <p class="num"></p>
+        </span>
         <a href="cart.html" class="float">
             <img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
         </a>
@@ -1055,6 +1057,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/numbercartitems.js"></script>
+
     <script src="js/common.min.js"></script>
     <script src="js/map.min.js"></script>
     <script src="js/usericon.js"></script>

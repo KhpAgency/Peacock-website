@@ -280,7 +280,7 @@
                         </div>
                     </li>
                 </ul>
-                
+
             </nav>
             <button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
                 aria-controls="headerMenu" aria-expanded="false" type="button">
@@ -383,7 +383,8 @@
         </div>
         <div class="contacts section">
             <div class="container">
-                <form class="contacts_form d-flex" action="https://formspree.io/f/mpzegbjv" method="POST" data-type="contacts">
+                <form class="contacts_form d-flex" action="https://formspree.io/f/mpzegbjv" method="POST"
+                    data-type="contacts">
                     <input class="field required" type="text" name="First Name" id="contactsFirstName"
                         placeholder="First Name" data-aos="fade-right" data-aos-delay="200" />
                     <input class="field required" type="text" name="Last Name" id="contactsLastName"
@@ -477,7 +478,9 @@
 
 
     <div>
-        <span class="notification"><p class="num">0</p></span>
+        <span id="numberofitems" class="notification">
+            <p class="num"></p>
+        </span>
         <a href="cart.html" class="float">
             <img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
         </a>
@@ -620,6 +623,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/numbercartitems.js"></script>
+
     <script src="js/usericon.js"></script>
 
     <script src="js/common.min.js"></script>
