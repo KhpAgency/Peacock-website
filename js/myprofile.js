@@ -242,6 +242,9 @@ function addnewaddress() {
         });
 }
 
+const setID =(id) => {
+    localStorage.setItem("orderID", id);
+}
 
 function getorders() {
     let baseUrl3 = "https://peacock-api-ixpn.onrender.com/api/v1/orders";
@@ -263,36 +266,36 @@ function getorders() {
                 `
                 <div class="form-group">
                     ${response.data.data.map((order) =>`
-                    <div class="card mb-4"> 
+                    <div class="card mb-4">
                         <div class="card-body">
-                        ${order.cartItems.map((item)=>`
-                            <div class="item">
-                            <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        </div>
-                            <p class="item-name">${item.quantity}&nbsp;x&nbsp;${item.productID.title}</p>
-                            <p class="item-description">
-                            ${item.productCategory == "ChocolateBox" ?
-                                    `<p>${item.variant}&nbsp pieces</p>`
-                                    : item.productCategory == "Tray" ?
-                                        `<p>${item.variant}&nbsp kg</p>`
+                        <span class="card-text2">Order# ${order.orderNumber}</span> 
+                        <a onclick="setID ('${order._id}')" href="orderdetails.html" class="card-text3">SEE DETAILS</a> 
+                            ${order.cartItems.map((item)=>`
+                            <div class="item mt-3">
+                                <div class="card2">
+                                    <div class="card-body1">
+                                        <h5 class="card-title1">
+                                            ${item.quantity}&nbsp;x&nbsp;${item.productID.title}
+                                        </h5>
+                                        <span class="card-text1">${item.productCategory ==
+                                            "ChocolateBox" ?
+                                            `
+                                        <span class="card-text1">${item.variant}&nbsp pieces</span>`
+                                        : item.productCategory == "Tray" ?
+                                        `<span class="card-text1">${item.variant}&nbsp kg</span>`
                                         : item.productCategory == "Packages" ?
-                                            `<p>${item.variant}&nbsp kg</p>`
-                                            : item.productCategory == "Cake" &&
-                                            `<p>${item.variant}&nbsp cm</p>`
-                            }
-                            </p>
-                            <p class="price">SAR&nbsp;<span id="price">${item.price * item.quantity}</span></p>
+                                        `<span class="card-text1">${item.variant}&nbsp kg</span>`
+                                        : item.productCategory == "Cake" &&
+                                        `<span class="card-text1">${item.variant}&nbsp cm</span>`
+                                        }</span>
+                                    </div>
+                                </div>
                             </div>
-                `).join("")}
+                            `).join("")}
+                            <span class="card-text4">Total: ${order.totalorderPrice}</span>
                         </div>
-                    </div>`).join("")}
-                    
-                </div>`;
+                    </div>
+                </div>`).join("")}`;
 
             document.getElementById("form5").innerHTML = data3;
 

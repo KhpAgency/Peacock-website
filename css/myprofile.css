@@ -1,0 +1,67 @@
+.card-img-top {
+    width: 80px !important;
+    height: 80px;
+}
+
+.card2 {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+}
+
+.card-title1 {
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.card-text1 {
+    font-size: 14px;
+    margin-bottom: 0px !important;
+}
+
+.card-text2 {
+    font-size: 14px;
+    margin-bottom: 0px !important;
+    color: rgb(116, 116, 116);
+}
+
+.card-text3 {
+    font-size: 14px;
+    margin-bottom: 0px !important;
+    float: right;
+    color: #Df9080 !important;
+}
+
+.card-text4 {
+    font-size: 14px;
+    margin-bottom: 0px !important;
+    float: right;
+    font-weight: 600;
+}
+
+
+.card-body1 {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding:  0rem 0.25rem;
+}
+
+.h6t{
+    font-family: 'Montserrat' !important;
+}
+.h2t{
+    font-size: 1.2rem;
+}
+.display-3{
+    font-size: 1.2rem !important;
+}
+.fs1{
+    font-size: 1.2rem !important;
+}

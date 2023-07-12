@@ -115,6 +115,7 @@ function collectFormData() {
             .then(function (response) {
                 console.log(response.data);
                 if (response.data.status="success") {
+                    localStorage.setItem("successorderid", response.data.order._id);
                     window.location.href = 'orderconfirmation.html';
                 }
             })
