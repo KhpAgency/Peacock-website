@@ -34,7 +34,16 @@ function getorderitems() {
             document.getElementById("total").innerHTML = data2;
 
 
-            let data4 =
+            if (response.data.data.user.addresses<1) {
+                let data4 =
+                `
+            <div id="accordion">
+                <p>No addresses found! Add new address from <a href="myprofile.html#addresses" style="color:blue !important">here</a>.</p>
+                </div>`
+            document.getElementById("details").innerHTML = data4;
+            }
+            else{
+                let data4 =
                 `
             <div id="accordion">
             
@@ -61,6 +70,9 @@ function getorderitems() {
                 
                 </div>`
             document.getElementById("details").innerHTML = data4;
+            }
+
+            
 
             let inputID = document.getElementById("cartIDs")
             inputID.value = response.data.data._id

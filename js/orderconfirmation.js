@@ -1,5 +1,10 @@
+let successorderDetails = localStorage.getItem('successorderid');
+if (successorderDetails==""){
+    redirect()
+}
+
+
 function getorderdetails() {
-    let successorderDetails = localStorage.getItem('successorderid');
 
     let baseUrl3 = `https://peacock-api-ixpn.onrender.com/api/v1/orders/${successorderDetails}`;
 
@@ -56,13 +61,28 @@ function getorderdetails() {
 
         document.getElementById("form5").innerHTML = data3;
 
-
+        // orderconfirmed = true
+        // redirect(orderconfirmed)
+    localStorage.setItem("successorderid","")
+                                
         }
         )
         .catch((err) => {
-            console.log(err);
+            // orderconfirmed = false
+            redirect()
         }
         )
 
 }
-getorderdetails();
+getorderdetails()
+
+
+
+
+
+function redirect() {
+    // if (params ==false) {
+        location.assign('index.html');
+
+    // }
+}

@@ -236,6 +236,8 @@ function addnewaddress() {
         .request(options)
         .then(function (response) {
             console.log(response.data); // Log the entire response object for inspection
+            document.querySelector("#closebtn").click();
+            getaddresses();
         })
         .catch(function (error) {
             console.error(error); // Log the error object for troubleshooting
@@ -244,6 +246,10 @@ function addnewaddress() {
 
 const setID =(id) => {
     localStorage.setItem("orderID", id);
+}
+
+function gotoshop() {
+    window.location.href='shop.html';
 }
 
 function getorders() {
@@ -261,8 +267,8 @@ function getorders() {
         .then((response) => {
             console.log(response.data.data);
             // userData = response.data.data;
-
-            let data3 =
+            if (response.data.data.length>0) {
+                let data3 =
                 `
                 <div class="form-group">
                     ${response.data.data.map((order) =>`
@@ -296,8 +302,23 @@ function getorders() {
                         </div>
                     </div>
                 </div>`).join("")}`;
+                document.getElementById("form5").innerHTML = data3;
+            }
+            else{
+                let data3 =
+                `<div class="d-grid form-group mt-5 position-absolute" style="place-content:center;left: 45%;">
+                    <h5 class="text-center text-uppercase text--bold">No orders found</h5>
+                    <p class="text-center">Let's make your first order!</p>
+                    <button type="button" class="p-2 btn-primary"
+									style="border-radius: .25rem" data-toggle="modal" onclick="gotoshop()">
+									Go to shop
+								</button>
+                </div>`;
+                document.getElementById("form5").innerHTML = data3;
+                document.getElementById("orderstitle").style.display="none";
+            }
+            
 
-            document.getElementById("form5").innerHTML = data3;
 
         }
         )
@@ -308,3 +329,10 @@ function getorders() {
 
 }
 getorders();
+
+
+// function removemodal() {
+//     document.getElementById("exampleModalCenter").style.display="none";
+//     getaddresses();
+
+// }

@@ -119,15 +119,15 @@ function collectFormData(form) {
             let number = response.data.numOfCartItems;
             let data = `<p class="num">${number}</p>`;
             document.getElementById("numberofitems").innerHTML = data;
-            // Toastify({
-            //     text: "Product added to cart!",
-            //     className: "info",
-            //     style: {
-            //         background: "linear-gradient(to right, #00b09b, #96c93d)",
-            //         borderRadius: "5px",
-            //     },
+            Toastify({
+                text: "Product added to cart!",
+                className: "info",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    borderRadius: "5px",
+                },
 
-            // }).showToast();
+            }).showToast();
             // clearForm();
             // setTimeout(redirct(), 100000);
 
@@ -135,15 +135,14 @@ function collectFormData(form) {
 
         .catch(function (error) {
             console.error(error);
-
-            // Toastify({
-            //     text: error.response.data.message,
-            //     className: "info",
-            //     style: {
-            //         background: "red",
-            //         borderRadius: "5px",
-            //     },
-            // }).showToast();
+            Toastify({
+                text: error.response.data.message,
+                className: "info",
+                style: {
+                    background: "red",
+                    borderRadius: "5px",
+                },
+            }).showToast();
         });
 
 }
