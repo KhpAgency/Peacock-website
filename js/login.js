@@ -50,6 +50,7 @@ function collectFormData() {
 
     .catch(function (error) {
       console.error(error.response.data);
+
       Toastify({
         text: error.response.data.message,
         className: "info",

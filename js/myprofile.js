@@ -86,7 +86,7 @@ function collectFormData() {
         }
     }
 
-    console.log(initialFormValues["email"]);
+    // console.log(initialFormValues["email"]);
     const options = {
         method: "PUT",
         headers: {
@@ -101,9 +101,26 @@ function collectFormData() {
         .request(options)
         .then(function (response) {
             console.log(response.data); // Log the entire response object for inspection
+            Toastify({
+                text: "Account details has been updated successfully!",
+                className: "info",
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  borderRadius: "5px",
+                },
+                
+              }).showToast();
         })
         .catch(function (error) {
             console.error(error); // Log the error object for troubleshooting
+            Toastify({
+                text: error.response.data.message,
+                className: "info",
+                style: {
+                  background: "red",
+                  borderRadius: "5px",
+                },
+              }).showToast();
         });
 }
 
@@ -129,14 +146,54 @@ function newpassword() {
         data: new URLSearchParams(formData), // Use only the updated fields
     };
 
-    axios
+    let np=document.getElementById("newPassword").value;
+    let cp=document.getElementById("passwordconfirm").value;
+    if (np!==cp) {
+        Toastify({
+            text: "Passwords don't match!",
+            className: "info",
+            style: {
+              background: "red",
+              borderRadius: "5px",
+            },
+            
+          }).showToast();
+    }
+    else{
+        axios
         .request(options)
         .then(function (response) {
             console.log(response.data); // Log the entire response object for inspection
+            if (response.data.errors) {
+                Toastify({
+                    text: "Password must be at least 6 characters!",
+                    className: "info",
+                    style: {
+                      background: "red",
+                      borderRadius: "5px",
+                    },
+                    
+                  }).showToast();
+            }else{
+
+                alert("Password Changed! Please login again")
+                window.location.href = "login.html";
+            }
+            
         })
         .catch(function (error) {
             console.error(error); // Log the error object for troubleshooting
+            Toastify({
+                text: error.response.data.message,
+                className: "info",
+                style: {
+                  background: "red",
+                  borderRadius: "5px",
+                },
+              }).showToast();
         });
+    }
+    
 
 }
 
@@ -206,10 +263,27 @@ function deleteaddress(id) {
 
             console.log(response);
             getaddresses();
+            Toastify({
+                text: "Address deleted!",
+                className: "info",
+                style: {
+                  background: "red",
+                  borderRadius: "5px",
+                },
+                
+              }).showToast();
         }
         )
         .catch((err) => {
             console.log(err);
+            Toastify({
+                text: err.response.data.message,
+                className: "info",
+                style: {
+                  background: "red",
+                  borderRadius: "5px",
+                },
+              }).showToast();
         }
         )
 }
@@ -238,9 +312,25 @@ function addnewaddress() {
             console.log(response.data); // Log the entire response object for inspection
             document.querySelector("#closebtn").click();
             getaddresses();
+            Toastify({
+                text: "New Address has been added successfully!",
+                className: "info",
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  borderRadius: "5px",
+                },
+              }).showToast();
         })
         .catch(function (error) {
             console.error(error); // Log the error object for troubleshooting
+            Toastify({
+                text: error.response.data.message,
+                className: "info",
+                style: {
+                  background: "red",
+                  borderRadius: "5px",
+                },
+              }).showToast();
         });
 }
 
