@@ -21,68 +21,103 @@ function getitems() {
             document.getElementById("cartcard").style.width = "855px";
             document.getElementById("summarycol").style.display = "none";
 
-            } else {
+            } 
+            else {
                 console.log("11111");
                 console.log(response.data.data);
-                let data = cart.map((item) =>
-                    // console.log(response.data.data)
-                    `<div class="row mb-5" id="product${item._id}">
-                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                    <div class="bg-image hover-overlay hover-zoom ripple rounded"
-                        data-mdb-ripple-color="light">
-                        <img src="${item.productID.images[0]}"
-                            class="w-100 imgh" alt="" />
-                        <a href="#!">
-                            <div class="mask"
-                                style="background-color: rgba(251, 251, 251, 0.2)"></div>
-                        </a>
-                    </div>
-                </div>
-    
-                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                    <input id="productid" value="${item._id}" type="text" hidden>
-                    <p><strong>${item.productID.title}</strong></p>
-                    <p>${item.productID.description}</p>
-                    ${item.productCategory == "ChocolateBox" ?
-                        `<p>${item.variant}&nbsp pieces</p>`
-                        : item.productCategory == "Tray" ?
-                            `<p>${item.variant}&nbsp kg</p>`
-                            : item.productCategory == "Packages" ?
-                                `<p>${item.variant}&nbsp kg</p>`
-                                : item.productCategory == "Cake" &&
-                                    `<p>${item.variant}&nbsp cm</p>`
+                let data = cart.map((item) => {
+                    try {
+                        return `
+                            <div class="row mb-5" id="product${item._id}">
+                                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                                        <img src="${item.productID.images[0]}" class="w-100 imgh" alt="" />
+                                        <a href="#!">
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                    <input id="productid" value="${item._id}" type="text" hidden>
+                                    <p><strong>${item.productID.title}</strong></p>
+                                    <p>${item.productID.description}</p>
+                                    ${item.productCategory == "ChocolateBox" ?
+                                        `<p>${item.variant}&nbsp pieces</p>`
+                                        : item.productCategory == "Tray" ?
+                                            `<p>${item.variant}&nbsp kg</p>`
+                                            : item.productCategory == "Packages" ?
+                                                `<p>${item.variant}&nbsp kg</p>`
+                                                : item.productCategory == "Cake" &&
+                                                    `<p>${item.variant}&nbsp cm</p>`
+                                    }
+                                    <button type="button" class="btn btn-primary2 btn-sm me-1 mb-2"
+                                        onclick="remove('${item._id}')" data-mdb-toggle="tooltip">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                    
+                                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" id="changequantity">
+                                    <div class="d-flex mb-4 quantity">
+                                        <button class="btn btn-primary px-3 me-2" onclick="decreaseQuantity(${item.price},'${item._id}')">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                    
+                                        <div class="form-outline">
+                                            <input id="form1${item._id}" min="0" name="quantity" value=${item.quantity} type="number" disabled
+                                                class="form-control active" />
+                                            <label class="form-label" for="form1">Quantity</label>
+                                        </div>
+                    
+                                        <button class="btn btn-primary px-3 ms-2" onclick="increaseQuantity(${item.price},'${item._id}')">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <p class="text-start text-md-center ml63">
+                                        SAR&nbsp
+                                        <span id="price${item._id}" class="price-price">${item.price * item.quantity}</span>
+                                    </p>
+                                </div>
+                            </div>`;
+                    } catch (error) {
+                        return `
+                            <div class="row mb-5" id="product${item._id}" style="margin-left: 25%;">
+                                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                    <input id="productid" value="${item._id}" type="text" hidden>
+                                    <p><strong>Product has been removed</strong></p>
+                                    <button type="button" class="btn btn-primary2 btn-sm me-1 mb-2"
+                                        onclick="remove('${item._id}')" data-mdb-toggle="tooltip">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                    
+                                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0" id="changequantity" style="margin-left: 14%;">
+                                    <div class="d-flex mb-4 quantity">
+                                        <button class="btn btn-primary px-3 me-2" onclick="decreaseQuantity(${item.price},'${item._id}')">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                    
+                                        <div class="form-outline">
+                                            <input id="form1${item._id}" min="0" name="quantity" value=${item.quantity} type="number" disabled
+                                                class="form-control active" />
+                                            <label class="form-label" for="form1">Quantity</label>
+                                        </div>
+                    
+                                        <button class="btn btn-primary px-3 ms-2" onclick="increaseQuantity(${item.price},'${item._id}')">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <p class="text-start text-md-center ml63">
+                                        SAR&nbsp
+                                        <span id="price${item._id}" class="price-price">${item.price * item.quantity}</span>
+                                    </p>
+                                </div>
+                            </div>`;
                     }
-                    <button type="button" class="btn btn-primary2 btn-sm me-1 mb-2"
-                        onclick="remove('${item._id}')" data-mdb-toggle="tooltip">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
-    
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" id="changequantity">
-                    <div class="d-flex mb-4 quantity">
-                        <button class="btn btn-primary px-3 me-2" onclick="decreaseQuantity(${item.price},'${item._id}')">
-                            <i class="fas fa-minus"></i>
-                        </button>
-    
-                        <div class="form-outline">
-                            <input id="form1${item._id}" min="0" name="quantity" value=${item.quantity} type="number" disabled
-                                class="form-control active" />
-                            <label class="form-label" for="form1">Quantity</label>
-                        </div>
-    
-                        <button class="btn btn-primary px-3 ms-2" onclick="increaseQuantity(${item.price},'${item._id}')">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                    <p  class="text-start text-md-center ml63">
-                    SAR&nbsp
-                    <span id="price${item._id}" class="price-price">${item.price * item.quantity}</span>
-                        
-                    </p>
-                </div>
-            </div>`).join("")
-    
+                }).join("");
+                
                 document.getElementById("products-card").innerHTML = data;
+                
     
                 // -----------------summary--------------------------
                 const total = response.data.data.totalCartPrice;

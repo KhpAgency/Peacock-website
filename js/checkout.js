@@ -12,43 +12,54 @@ function getorderitems() {
             const cart = response.data.data.cartItems
             console.log(response.data.data);
             let data = cart.map((item) =>
-                `<div class="item">
+                item.productID !== null ?
+                    `<div class="item">
                 <p class="price">SAR&nbsp;<span id="price">${item.price * item.quantity}</span></p>
                 <p class="item-name">${item.quantity}&nbsp;x&nbsp;${item.productID.title}</p>
                 <p class="item-description">
                 ${item.productCategory == "ChocolateBox" ?
-                    `<p>${item.variant}&nbsp pieces</p>`
-                    : item.productCategory == "Tray" ?
-                        `<p>${item.variant}&nbsp kg</p>`
-                        : item.productCategory == "Packages" ?
+                        `<p>${item.variant}&nbsp pieces</p>`
+                        : item.productCategory == "Tray" ?
                             `<p>${item.variant}&nbsp kg</p>`
-                            : item.productCategory == "Cake" &&
+                            : item.productCategory == "Packages" ?
+                                `<p>${item.variant}&nbsp kg</p>`
+                                : item.productCategory == "Cake" &&
                                 `<p>${item.variant}&nbsp cm</p>`
-                }
+                    }
                 </p>
+            </div>`:
+                    `<div class="item">
+                <p class="price">SAR&nbsp;<span id="price">${item.price * item.quantity}</span></p>
+                <p class="item-name">Product has been removed</p>
             </div>`
             ).join("")
             document.getElementById("orderproducts").innerHTML = data;
+            if (item.productID == null) {
+                document.getElementById("proceedbutton").setAttribute("disabled", "");
+                document.getElementById("proceedbutton").setAttribute("data-toggle", "tooltip");
+                document.getElementById("proceedbutton").setAttribute("title", "invalid data");
+
+            }
 
             let data2 = `Total<span class="price">SAR&nbsp;${response.data.data.totalCartPrice}</span>`
             document.getElementById("total").innerHTML = data2;
 
 
-            if (response.data.data.user.addresses<1) {
+            if (response.data.data.user.addresses < 1) {
                 let data4 =
-                `
+                    `
             <div id="accordion">
                 <p>No addresses found! Add new address from <a href="myprofile.html#addresses" style="color:blue !important">here</a>.</p>
                 </div>`
-            document.getElementById("details").innerHTML = data4;
+                document.getElementById("details").innerHTML = data4;
             }
-            else{
+            else {
                 let data4 =
-                `
+                    `
             <div id="accordion">
             <p>Add new address from <a href="myprofile.html#addresses" style="color:blue !important">here</a>.</p>
-            ${response.data.data.user.addresses.map((address) => 
-                     `<div class="card mb-2" onclick="getID('${address._id}')">
+            ${response.data.data.user.addresses.map((address) =>
+                        `<div class="card mb-2" onclick="getID('${address._id}')">
                 <div class="card-header" id="headingOne" >
                     <label class="labelstyle" data-toggle="collapse" data-target="#${address._id}" aria-expanded="true" aria-controls="collapseOne">
                     <input id="alias_${address._id}" type="radio" value="${address.alias}" class=" radioclass" name="optradio" required>${address.alias}
@@ -66,13 +77,13 @@ function getorderitems() {
                   </div>
                 </div>
               </div>`
-                ).join("")}
+                    ).join("")}
                 
                 </div>`
-            document.getElementById("details").innerHTML = data4;
+                document.getElementById("details").innerHTML = data4;
             }
 
-            
+
 
             let inputID = document.getElementById("cartIDs")
             inputID.value = response.data.data._id
@@ -100,41 +111,41 @@ form.addEventListener("submit", function (event) {
 
 function collectFormData() {
 
-        let id = document.getElementById("cartIDs").value;
+    let id = document.getElementById("cartIDs").value;
 
 
-        let baseUrl = `https://peacock-api-ixpn.onrender.com/api/v1/orders/${id}`;
+    let baseUrl = `https://peacock-api-ixpn.onrender.com/api/v1/orders/${id}`;
 
-        const formData = new FormData(form);
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/JSON",
-                Authorization: `Bearer ${localStorage.getItem("token")}`
+    const formData = new FormData(form);
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/JSON",
+            Authorization: `Bearer ${localStorage.getItem("token")}`
 
-            },
-            url: baseUrl,
-            data: {
-                shippingAddress: {
-                    alias: document.getElementById(`alias_${localStorage.getItem("addressID")}`).value,
-                    details: document.getElementById(`addressdetails_${localStorage.getItem("addressID")}`).innerHTML,
-                    phone: document.getElementById(`addressphone_${localStorage.getItem("addressID")}`).innerHTML,
-                }
-            },
-        };
-        axios
-            .request(options)
-            .then(function (response) {
-                console.log(response.data);
-                if (response.data.status="success") {
-                    localStorage.setItem("successorderid", response.data.order._id);
-                    window.location.href = 'orderconfirmation.html';
-                }
-            })
+        },
+        url: baseUrl,
+        data: {
+            shippingAddress: {
+                alias: document.getElementById(`alias_${localStorage.getItem("addressID")}`).value,
+                details: document.getElementById(`addressdetails_${localStorage.getItem("addressID")}`).innerHTML,
+                phone: document.getElementById(`addressphone_${localStorage.getItem("addressID")}`).innerHTML,
+            }
+        },
+    };
+    axios
+        .request(options)
+        .then(function (response) {
+            console.log(response.data);
+            if (response.data.status = "success") {
+                localStorage.setItem("successorderid", response.data.order._id);
+                window.location.href = 'orderconfirmation.html';
+            }
+        })
 
-            .catch(function (error) {
-                console.error(error.response.data);
+        .catch(function (error) {
+            console.error(error.response.data);
 
-            });
+        });
 
 }
