@@ -366,28 +366,37 @@ function getorders() {
                         <div class="card-body">
                         <span class="card-text2">Order# ${order.orderNumber}</span> 
                         <a onclick="setID ('${order._id}')" href="orderdetails.html" class="card-text3">SEE DETAILS</a> 
-                            ${order.cartItems.map((item)=>`
-                            <div class="item mt-3">
-                                <div class="card2">
-                                    <div class="card-body1">
-                                        <h5 class="card-title1">
-                                            ${item.quantity}&nbsp;x&nbsp;${item.productID.title}
-                                        </h5>
-                                        <span class="card-text1">${item.productCategory ==
-                                            "ChocolateBox" ?
-                                            `
-                                        <span class="card-text1">${item.variant}&nbsp pieces</span>`
+                        ${order.cartItems.map((item) => {
+                            let productInfo;
+                            try {
+                                productInfo = `
+                                    <h5 class="card-title1">
+                                        ${item.quantity}&nbsp;x&nbsp;${item.productID.title}
+                                    </h5>
+                                    <span class="card-text1">${item.productCategory == "ChocolateBox" ?
+                                        `<span class="card-text1">${item.variant}&nbsp pieces</span>`
                                         : item.productCategory == "Tray" ?
                                         `<span class="card-text1">${item.variant}&nbsp kg</span>`
                                         : item.productCategory == "Packages" ?
                                         `<span class="card-text1">${item.variant}&nbsp kg</span>`
                                         : item.productCategory == "Cake" &&
                                         `<span class="card-text1">${item.variant}&nbsp cm</span>`
-                                        }</span>
+                                    }</span>
+                                `;
+                            } catch (error) {
+                                // If there's an error accessing item properties, set a default message
+                                productInfo = "<h5 class=card-text1'>Product has been removed</h5>";
+                            }
+                            return `
+                                <div class="item mt-3">
+                                    <div class="card2">
+                                        <div class="card-body1">
+                                            ${productInfo}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            `).join("")}
+                            `;
+                        }).join("")}    
                             <span class="card-text4">Total: ${order.totalorderPrice}</span>
                         </div>
                     </div>

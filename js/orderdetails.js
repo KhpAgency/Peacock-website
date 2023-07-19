@@ -25,41 +25,43 @@ function getorderdetails() {
                             </div>
                             <div class="row">
                                 <div class="col">
-                                ${order.cartItems.map((item)=>`<div class="card card-2 mb-3">
-                                <div class="card-body bg-white shadow rounded-lg">
-                                    <div class="media">
-                                        <div class="sq align-self-center "> <img
-                                                class=" my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0"
-                                                src="${item.productID.images[0]}"
-                                                style="width: 100px" /> </div>
-                                        <div class="media-body my-auto ">
-                                        <div class="row text-left">
-                                            <h6 class="mb-2 fs1"> ${item.productID.title}</h6>
-                                        </div>
-                                        <div class="row text-left">
-                                            <p class="mb-0"> ${item.productID.description}</p>
-                                        </div>
-                                            <div class="row  my-auto flex-column">
-                                                <div class="col my-auto"> 
-                                                    ${item.productCategory == "ChocolateBox" ?
-                                                        `Pieces: ${item.variant} pieces</div>`
-                                                        : item.productCategory == "Tray" ?
-                                                        `Weight: ${item.variant} kg</div>`
-                                                        : item.productCategory == "Packages" ?
-                                                        `Weight: ${item.variant} kg / Tray</div>`
-                                                        : item.productCategory == "Cake" &&
-                                                        `Size: ${item.variant} cm</div>`
-                                                    }
-                                                <div class="col my-auto"> Qty: ${item.quantity}</div>
-                                                
+                                ${order.cartItems.map((item) => {
+                                    let productInfo;
+                                    try {
+                                        productInfo = `
+                                            <div class="sq align-self-center "> 
+                                                <img class="my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="${item.productID.images[0]}" style="width: 100px" />
                                             </div>
-                                            <div class="row my-auto text-right">
+                                            <div class="media-body my-auto ">
+                                                <div class="row text-left">
+                                                    <h6 class="mb-2 fs1">${item.productID.title}</h6>
+                                                </div>
+                                                <div class="row text-left">
+                                                    <p class="mb-0">${item.productID.description}</p>
+                                                </div>
+                                                <div class="row text-left">
+                                                    <p class="mb-0">Qty: ${item.quantity}</p>
+                                                </div>
+                                                <div class="row text-right">
                                                     <h6 class="mb-0 h6t">SAR&nbsp;${item.price}</h6>
                                                 </div>
+                                            </div>
+                                        `;
+                                    } catch (error) {
+                                        // If there's an error accessing item properties, set a default message
+                                        productInfo = "<div>Product has been removed</div>";
+                                    }
+                                    return `
+                                        <div class="card card-2 mb-3">
+                                            <div class="card-body bg-white shadow rounded-lg">
+                                                <div class="media">
+                                                    ${productInfo}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>`).join("")}
+                                    `;
+                                }).join("")}
+                                
                                     
                                 </div>
                             </div>

@@ -46,7 +46,7 @@ function getorderitems() {
                 let data4 =
                 `
             <div id="accordion">
-            
+            <p>Add new address from <a href="myprofile.html#addresses" style="color:blue !important">here</a>.</p>
             ${response.data.data.user.addresses.map((address) => 
                      `<div class="card mb-2" onclick="getID('${address._id}')">
                 <div class="card-header" id="headingOne" >

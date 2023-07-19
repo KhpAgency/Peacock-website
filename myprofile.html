@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="css/cart.css" />
 	<link rel="stylesheet" type="text/css" href="css/profilestyle.css">
 	<link rel="stylesheet" href="css/checkout.css">
+	<link rel="stylesheet" href="css/loader.css">
 	<link rel="stylesheet" href="css/myprofile.css">
 	<link rel="stylesheet" type="text/css"
 		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -28,595 +29,608 @@
 </head>
 
 <body style="font-weight: lighter;margin-top:-50px;background-color: #ede6dc68;">
-	<header class="header" data-page="home" data-page-parent="home" style="background-color: #A8C7C7;">
-		<div class="container d-flex align-items-center justify-content-between flex-wrap flex-xl-nowrap">
-			<a class="logo" href="index.html">
-				<!-- <span class="logo_img" ></span> -->
-				<img src="img/logo resized-01.png" style="max-height: 80px;">
+
+	  <!-- preloader screen -->
+      <div class="preloader">
+        <div class="loader"></div>
+    </div>
 
 
+	<div class="main-content">
 
-
-			</a>
-			<nav class="header_nav text--medium text--md collapse" id="headerMenu"
-				style="color: white;font-weight: 300;">
-				<ul class="header_nav-list pl-0" style="gap: 50px;">
-					<li class="header_nav-list_item">
-						<a class="nav-item nav-link" href="index.html" data-page="about" data-single="true">
-							<span class="nav-item_text"> HOME </span>
-
-						</a>
-						<div class="dropdown-menu collapse" id="homeMenu">
-
-						</div>
-					</li>
-					<li class="header_nav-list_item">
-						<a class="nav-item nav-link" href="about.html" data-page="about" data-single="true">
-							<span class="nav-item_text">ABOUT US</span>
-						</a>
-					</li>
-					<li class="header_nav-list_item dropdown">
-						<a class="nav-link nav-item dropdown-toggle d-flex align-items-center" data-bs-toggle="collapse"
-							data-bs-target="#contactsMenu" data-trigger="dropdown" data-page-parent="contacts"
-							data-main-link="true" aria-expanded="false" aria-controls="contactsMenu">
-							<span class="nav-item_text">SERVICES </span>
-
-						</a>
-						<div class="dropdown-menu collapse" id="contactsMenu">
-							<ul class="dropdown-list" style="background-color: #A8C7C7;">
-								<!-- <li class="list-item" data-main="true">
-                                        <a
-                                            class="dropdown-item nav-item"
-                                            data-page="contacts"
-                                            data-page-parent="contacts"
-                                            href="menu.html"
-                                        >
-                                            Menu
-                                        </a>
-                                    </li> -->
-								<li class="list-item" style="background-color: #A8C7C7;">
-									<a class="dropdown-item nav-item" data-page="reservations"
-										data-page-parent="contacts" href="catering.html">
-										Catering
-									</a>
-								</li>
-								<li class="list-item" style="background-color: #A8C7C7;">
-									<a class="dropdown-item nav-item" data-page="reservations"
-										data-page-parent="contacts" href="customization.html">
-										Customization
-									</a>
-								</li>
-								<li class="list-item" style="background-color: #A8C7C7;">
-									<a class="dropdown-item nav-item" data-page="reservations"
-										data-page-parent="contacts" href="delivery.html">
-										Delivery
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="header_nav-list_item dropdown">
-						<a class="nav-link nav-item dropdown-toggle d-flex align-items-center" data-bs-toggle="collapse"
-							data-bs-target="#contactsMenu" data-trigger="dropdown" data-page-parent="contacts"
-							data-main-link="true" aria-expanded="false" aria-controls="contactsMenu">
-							<span class="nav-item_text">PRODUCTS </span>
-
-						</a>
-						<div class="dropdown-menu collapse" id="contactsMenu">
-							<ul class="dropdown-list" style="background-color: #A8C7C7;">
-								<!-- <li class="list-item" data-main="true">
-                                        <a
-                                            class="dropdown-item nav-item"
-                                            data-page="contacts"
-                                            data-page-parent="contacts"
-                                            href="menu.html"
-                                        >
-                                            Menu
-                                        </a>
-                                    </li> -->
-								<li class="list-item" style="background-color: #A8C7C7;">
-									<a class="dropdown-item nav-item" data-page="reservations"
-										data-page-parent="contacts" href="divisions.html">
-										Chocolates
-									</a>
-								</li>
-								<li class="list-item" style="background-color: #A8C7C7;">
-									<a class="dropdown-item nav-item" data-page="reservations"
-										data-page-parent="contacts" href="divisions2.html">
-										Cakes
-									</a>
-								</li>
-								<li class="list-item" style="background-color: #A8C7C7;">
-									<a class="dropdown-item nav-item" data-page="reservations"
-										data-page-parent="contacts" href="divisions3.html">
-										Savory
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="header_nav-list_item">
-						<a class="nav-item nav-link" href="menu.html" data-page="services" data-single="true">
-							<span class="nav-item_text"> MENU
-							</span>
-
-						</a>
-					</li>
-					<li class="header_nav-list_item">
-						<a class="nav-item nav-link" href="shop.html" data-page="services" data-single="true">
-							<span class="nav-item_text"> SHOP
-							</span>
-
-						</a>
-
-					</li>
-
-					<li class="header_nav-list_item dropdown">
-						<a class="nav-item nav-link" href="contacts.html" data-page="about" data-single="true">
-							<span class="nav-item_text"> CONTACT US
-							</span>
-
-						</a>
-						<div class="dropdown-menu collapse" id="pagesMenu">
-							<!-- <ul class="dropdown-list">
-                                    <li class="list-item">
-                                        <a class="dropdown-item nav-item" data-page="team" data-page-parent="pages" href="team.html">
-                                            Team
-                                        </a>
-                                    </li>
-                                    <li class="list-item">
-                                        <a class="dropdown-item nav-item" data-page="error" data-page-parent="pages" href="404.html">
-                                            Error Page
-                                        </a>
-                                    </li>
-                                </ul> -->
-						</div>
-					</li>
-					<li class="header_nav-list_item dropdown">
-						<a class="nav-link nav-item dropdown-toggle d-flex align-items-center" href="contacts.html"
-							data-bs-toggle="collapse" data-bs-target="#contactsMenu" data-trigger="dropdown"
-							data-page-parent="contacts" data-main-link="true" aria-expanded="false"
-							aria-controls="contactsMenu">
-							<!-- <span class="nav-item_text"> Contact Us </span>
-                                <span class="icon"></span> -->
-						</a>
-						<div class="dropdown-menu collapse" id="contactsMenu">
-							<!-- <ul class="dropdown-list">
-                                    <li class="list-item" data-main="true">
-                                        <a
-                                            class="dropdown-item nav-item"
-                                            data-page="contacts"
-                                            data-page-parent="contacts"
-                                            href="contacts.html"
-                                        >
-                                            Contact Us
-                                        </a>
-                                    </li>
-                                    <li class="list-item">
-                                        <a
-                                            class="dropdown-item nav-item"
-                                            data-page="reservations"
-                                            data-page-parent="contacts"
-                                            href="reservations.html"
-                                        >
-                                            Reservations
-                                        </a>
-                                    </li>
-                                </ul> -->
-						</div>
-					</li>
-				</ul>
-
-			</nav>
-			<button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
-				aria-controls="headerMenu" aria-expanded="false" type="button">
-				<span class="line"></span>
-				<span class="line"></span>
-				<span class="line line--short"></span>
-			</button>
-		</div>
-	</header>
-	<style>
-		@media only screen and (max-width: 600px) {
-			.infoo {
-
-				scale: 1.5;
+		<header class="header" data-page="home" data-page-parent="home" style="background-color: #A8C7C7;">
+			<div class="container d-flex align-items-center justify-content-between flex-wrap flex-xl-nowrap">
+				<a class="logo" href="index.html">
+					<!-- <span class="logo_img" ></span> -->
+					<img src="img/logo resized-01.png" style="max-height: 80px;">
+	
+	
+	
+	
+				</a>
+				<nav class="header_nav text--medium text--md collapse" id="headerMenu"
+					style="color: white;font-weight: 300;">
+					<ul class="header_nav-list pl-0" style="gap: 50px;">
+						<li class="header_nav-list_item">
+							<a class="nav-item nav-link" href="index.html" data-page="about" data-single="true">
+								<span class="nav-item_text"> HOME </span>
+	
+							</a>
+							<div class="dropdown-menu collapse" id="homeMenu">
+	
+							</div>
+						</li>
+						<li class="header_nav-list_item">
+							<a class="nav-item nav-link" href="about.html" data-page="about" data-single="true">
+								<span class="nav-item_text">ABOUT US</span>
+							</a>
+						</li>
+						<li class="header_nav-list_item dropdown">
+							<a class="nav-link nav-item dropdown-toggle d-flex align-items-center" data-bs-toggle="collapse"
+								data-bs-target="#contactsMenu" data-trigger="dropdown" data-page-parent="contacts"
+								data-main-link="true" aria-expanded="false" aria-controls="contactsMenu">
+								<span class="nav-item_text">SERVICES </span>
+	
+							</a>
+							<div class="dropdown-menu collapse" id="contactsMenu">
+								<ul class="dropdown-list" style="background-color: #A8C7C7;">
+									<!-- <li class="list-item" data-main="true">
+											<a
+												class="dropdown-item nav-item"
+												data-page="contacts"
+												data-page-parent="contacts"
+												href="menu.html"
+											>
+												Menu
+											</a>
+										</li> -->
+									<li class="list-item" style="background-color: #A8C7C7;">
+										<a class="dropdown-item nav-item" data-page="reservations"
+											data-page-parent="contacts" href="catering.html">
+											Catering
+										</a>
+									</li>
+									<li class="list-item" style="background-color: #A8C7C7;">
+										<a class="dropdown-item nav-item" data-page="reservations"
+											data-page-parent="contacts" href="customization.html">
+											Customization
+										</a>
+									</li>
+									<li class="list-item" style="background-color: #A8C7C7;">
+										<a class="dropdown-item nav-item" data-page="reservations"
+											data-page-parent="contacts" href="delivery.html">
+											Delivery
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="header_nav-list_item dropdown">
+							<a class="nav-link nav-item dropdown-toggle d-flex align-items-center" data-bs-toggle="collapse"
+								data-bs-target="#contactsMenu" data-trigger="dropdown" data-page-parent="contacts"
+								data-main-link="true" aria-expanded="false" aria-controls="contactsMenu">
+								<span class="nav-item_text">PRODUCTS </span>
+	
+							</a>
+							<div class="dropdown-menu collapse" id="contactsMenu">
+								<ul class="dropdown-list" style="background-color: #A8C7C7;">
+									<!-- <li class="list-item" data-main="true">
+											<a
+												class="dropdown-item nav-item"
+												data-page="contacts"
+												data-page-parent="contacts"
+												href="menu.html"
+											>
+												Menu
+											</a>
+										</li> -->
+									<li class="list-item" style="background-color: #A8C7C7;">
+										<a class="dropdown-item nav-item" data-page="reservations"
+											data-page-parent="contacts" href="divisions.html">
+											Chocolates
+										</a>
+									</li>
+									<li class="list-item" style="background-color: #A8C7C7;">
+										<a class="dropdown-item nav-item" data-page="reservations"
+											data-page-parent="contacts" href="divisions2.html">
+											Cakes
+										</a>
+									</li>
+									<li class="list-item" style="background-color: #A8C7C7;">
+										<a class="dropdown-item nav-item" data-page="reservations"
+											data-page-parent="contacts" href="divisions3.html">
+											Savory
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="header_nav-list_item">
+							<a class="nav-item nav-link" href="menu.html" data-page="services" data-single="true">
+								<span class="nav-item_text"> MENU
+								</span>
+	
+							</a>
+						</li>
+						<li class="header_nav-list_item">
+							<a class="nav-item nav-link" href="shop.html" data-page="services" data-single="true">
+								<span class="nav-item_text"> SHOP
+								</span>
+	
+							</a>
+	
+						</li>
+	
+						<li class="header_nav-list_item dropdown">
+							<a class="nav-item nav-link" href="contacts.html" data-page="about" data-single="true">
+								<span class="nav-item_text"> CONTACT US
+								</span>
+	
+							</a>
+							<div class="dropdown-menu collapse" id="pagesMenu">
+								<!-- <ul class="dropdown-list">
+										<li class="list-item">
+											<a class="dropdown-item nav-item" data-page="team" data-page-parent="pages" href="team.html">
+												Team
+											</a>
+										</li>
+										<li class="list-item">
+											<a class="dropdown-item nav-item" data-page="error" data-page-parent="pages" href="404.html">
+												Error Page
+											</a>
+										</li>
+									</ul> -->
+							</div>
+						</li>
+						<li class="header_nav-list_item dropdown">
+							<a class="nav-link nav-item dropdown-toggle d-flex align-items-center" href="contacts.html"
+								data-bs-toggle="collapse" data-bs-target="#contactsMenu" data-trigger="dropdown"
+								data-page-parent="contacts" data-main-link="true" aria-expanded="false"
+								aria-controls="contactsMenu">
+								<!-- <span class="nav-item_text"> Contact Us </span>
+									<span class="icon"></span> -->
+							</a>
+							<div class="dropdown-menu collapse" id="contactsMenu">
+								<!-- <ul class="dropdown-list">
+										<li class="list-item" data-main="true">
+											<a
+												class="dropdown-item nav-item"
+												data-page="contacts"
+												data-page-parent="contacts"
+												href="contacts.html"
+											>
+												Contact Us
+											</a>
+										</li>
+										<li class="list-item">
+											<a
+												class="dropdown-item nav-item"
+												data-page="reservations"
+												data-page-parent="contacts"
+												href="reservations.html"
+											>
+												Reservations
+											</a>
+										</li>
+									</ul> -->
+							</div>
+						</li>
+					</ul>
+	
+				</nav>
+				<button class="header_trigger" id="headerTrigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
+					aria-controls="headerMenu" aria-expanded="false" type="button">
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line line--short"></span>
+				</button>
+			</div>
+		</header>
+		<style>
+			@media only screen and (max-width: 600px) {
+				.infoo {
+	
+					scale: 1.5;
+				}
+	
 			}
-
-		}
-	</style>
-
-	<main class="page payment-page mt30">
-		<div class="info section--nopb" style="padding-top: 15%;">
-			<section class="mb-5">
-				<div class="container" style="justify-content: center;">
-					<div class="bg-white shadow rounded-lg d-block d-sm-flex">
-						<div class="profile-tab-nav border-right">
-							<div class="p-4">
-								<div class="img-circle text-center mb-3">
-									<img src="img/user-icon.png" alt="Image" class="shadow inline">
-								</div>
-								<div id="main_name">
-									<!-- <h4 class="text-center">Kiran Acharya</h4> -->
-								</div>
-							</div>
-							<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
-								aria-orientation="vertical">
-								<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account"
-									role="tab" aria-controls="account" aria-selected="true">
-									<i class="fa fa-home text-center mr-1"></i>
-									Account
-								</a>
-								<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab"
-									aria-controls="password" aria-selected="false">
-									<i class="fa fa-key text-center mr-1"></i>
-									Password
-								</a>
-								<a class="nav-link" id="addresses-tab" data-toggle="pill" href="#addresses" role="tab"
-									aria-controls="addresses" aria-selected="false">
-									<i class="fa fa-map-pin text-center mr-1"></i>
-									Addresses
-								</a>
-								<a class="nav-link" id="orders-tab" data-toggle="pill" href="#orders" role="tab"
-									aria-controls="orders" aria-selected="false">
-									<i class="fa fa-list-alt text-center mr-1"></i>
-									Orders
-								</a>
-								<!-- <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-									<i class="fa fa-bell text-center mr-1"></i> 
-									Notification
-								</a> -->
-							</div>
-						</div>
-						<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-							<div class="tab-pane fade show active" id="account" role="tabpanel"
-								aria-labelledby="account-tab">
-								<h3 id="accounth3" class="mb-4">Account Details</h3>
-								<form id="form1">
-									<!-- <div class="row mb-3">
-										<div class="col-md-12">
-											<div class="form-group">
-												<label>Name</label>
-												<input type="text" name="name" class="form-control" value="Kiran">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group">
-												<label>Email</label>
-												<input type="text" name="email" class="form-control"
-													value="kiranacharya287@gmail.com">
-											</div>
-										</div>
-										<div class="col-md-12">
-											<div class="form-group">
-												<label>Phone number</label>
-												<input type="text" name="phone" class="form-control"
-													value="+91 9876543215">
-											</div>
-										</div>
+		</style>
+	
+		<main class="page payment-page mt30">
+			<div class="info section--nopb" style="padding-top: 15%;">
+				<section class="mb-5">
+					<div class="container" style="justify-content: center;">
+						<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+							<div class="profile-tab-nav border-right">
+								<div class="p-4">
+									<div class="img-circle text-center mb-3">
+										<img src="img/user-icon.png" alt="Image" class="shadow inline">
 									</div>
-									<div>
-										<button type="submit" class="btn btn-primary mr-2">Update</button>
-										<button class="btn btn-light">Cancel</button>
-									</div> -->
-								</form>
+									<div id="main_name">
+										<!-- <h4 class="text-center">Kiran Acharya</h4> -->
+									</div>
+								</div>
+								<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+									aria-orientation="vertical">
+									<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account"
+										role="tab" aria-controls="account" aria-selected="true">
+										<i class="fa fa-home text-center mr-1"></i>
+										Account
+									</a>
+									<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab"
+										aria-controls="password" aria-selected="false">
+										<i class="fa fa-key text-center mr-1"></i>
+										Password
+									</a>
+									<a class="nav-link" id="addresses-tab" data-toggle="pill" href="#addresses" role="tab"
+										aria-controls="addresses" aria-selected="false">
+										<i class="fa fa-map-pin text-center mr-1"></i>
+										Addresses
+									</a>
+									<a class="nav-link" id="orders-tab" data-toggle="pill" href="#orders" role="tab"
+										aria-controls="orders" aria-selected="false">
+										<i class="fa fa-list-alt text-center mr-1"></i>
+										Orders
+									</a>
+									<!-- <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+										<i class="fa fa-bell text-center mr-1"></i> 
+										Notification
+									</a> -->
+								</div>
 							</div>
-							<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab"
-								style="margin-bottom: 7%;">
-								<h3 class="mb-4">Password Settings</h3>
-								<form id="form2">
-									<!-- <div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Old password</label>
-												<input type="password" name="password" class="form-control">
+							<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+								<div class="tab-pane fade show active" id="account" role="tabpanel"
+									aria-labelledby="account-tab">
+									<h3 id="accounth3" class="mb-4">Account Details</h3>
+									<form id="form1">
+										<!-- <div class="row mb-3">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>Name</label>
+													<input type="text" name="name" class="form-control" value="Kiran">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>Email</label>
+													<input type="text" name="email" class="form-control"
+														value="kiranacharya287@gmail.com">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>Phone number</label>
+													<input type="text" name="phone" class="form-control"
+														value="+91 9876543215">
+												</div>
 											</div>
 										</div>
-									</div> -->
+										<div>
+											<button type="submit" class="btn btn-primary mr-2">Update</button>
+											<button class="btn btn-light">Cancel</button>
+										</div> -->
+									</form>
+								</div>
+								<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab"
+									style="margin-bottom: 7%;">
+									<h3 class="mb-4">Password Settings</h3>
+									<form id="form2">
+										<!-- <div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Old password</label>
+													<input type="password" name="password" class="form-control">
+												</div>
+											</div>
+										</div> -->
+										<div class="row mb-3">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>New password</label>
+													<input type="password" id="newPassword" name="newPassword" class="form-control" value="" required>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Confirm new password</label>
+													<input type="password" id="passwordconfirm" name="passwordconfirm" class="form-control" value="" required>
+												</div>
+											</div>
+										</div>
+										<div>
+											<button class="btn btn-primary mr-2">Update</button>
+											<!-- <button class="btn btn-light">Cancel</button> -->
+										</div>
+									</form>
+								</div>
+								<div class="tab-pane fade" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
+									<button type="button" class="p-2 btn-primary float-md-right"
+										style="border-radius: .25rem;" data-toggle="modal"
+										data-target="#exampleModalCenter">
+										Add new address
+									</button>
+	
+									<h3 class="mb-4">Addresses Details</h3>
 									<div class="row mb-3">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>New password</label>
-												<input type="password" id="newPassword" name="newPassword" class="form-control" value="" required>
-											</div>
+										<div class="col-md-12">
+											<form id="form3">
+												<!-- <div class="form-group">
+													<h5>Address 1</h5>
+													<label>Title</label>
+													<input id="nameinput" type="text" name="alias" class="form-control" value="${response.data.data[0].alias}">
+													<label>Details</label>
+													<input id="emailinput" type="text" name="details" class="form-control"
+														value="${response.data.data[0].details}">
+													<label>Phone</label>
+													<input id="phoneinput" type="text" name="phone" class="form-control"
+													value="${response.data.data[0].phone}">
+												</div>
+										<div>
+											<button type="submit" class="btn btn-primary mr-2">Update</button>
+										</div> -->
+											</form>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Confirm new password</label>
-												<input type="password" id="passwordconfirm" name="passwordconfirm" class="form-control" value="" required>
-											</div>
-										</div>
-									</div>
-									<div>
-										<button class="btn btn-primary mr-2">Update</button>
-										<!-- <button class="btn btn-light">Cancel</button> -->
-									</div>
-								</form>
-							</div>
-							<div class="tab-pane fade" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
-								<button type="button" class="p-2 btn-primary float-md-right"
-									style="border-radius: .25rem;" data-toggle="modal"
-									data-target="#exampleModalCenter">
-									Add new address
-								</button>
-
-								<h3 class="mb-4">Addresses Details</h3>
-								<div class="row mb-3">
-									<div class="col-md-12">
-										<form id="form3">
-											<!-- <div class="form-group">
-												<h5>Address 1</h5>
-												<label>Title</label>
-												<input id="nameinput" type="text" name="alias" class="form-control" value="${response.data.data[0].alias}">
-												<label>Details</label>
-												<input id="emailinput" type="text" name="details" class="form-control"
-													value="${response.data.data[0].details}">
-												<label>Phone</label>
-												<input id="phoneinput" type="text" name="phone" class="form-control"
-												value="${response.data.data[0].phone}">
-											</div>
-									<div>
-										<button type="submit" class="btn btn-primary mr-2">Update</button>
-									</div> -->
-										</form>
 									</div>
 								</div>
-							</div>
-							<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-								<h3 id="orderstitle" class="mb-4">Orders</h3>
-								<div class="row mb-3">
-									<div class="col-md-12">
-										<form id="form5">
-											<!-- <div class="form-group">
-												${response.data.data.map((order) =>`
-												<div class="card mb-4">
-													<div class="card-body">
-														${order.cartItems.map((item)=>`
-														<div class="item">
-															<div class="card" style="width: 18rem;">
-																<img src="${item.productID.images[0]}"
-																	class="card-img-top" alt="...">
-																<div class="card-body">
-																	<h5 class="card-title">
-																		${item.quantity}&nbsp;x&nbsp;${item.productID.title}
-																	</h5>
-																	<p class="card-text">${item.productCategory ==
-																		"ChocolateBox" ?
-																		`
-																	<p>${item.variant}&nbsp pieces</p>`
-																	: item.productCategory == "Tray" ?
-																	`<p>${item.variant}&nbsp kg</p>`
-																	: item.productCategory == "Packages" ?
-																	`<p>${item.variant}&nbsp kg</p>`
-																	: item.productCategory == "Cake" &&
-																	`<p>${item.variant}&nbsp cm</p>`
-																	}</p>
-																	<p class="price">SAR&nbsp;<span
-																			id="price">${item.price *
-																			item.quantity}</span></p>
+								<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+									<h3 id="orderstitle" class="mb-4">Orders</h3>
+									<div class="row mb-3">
+										<div class="col-md-12">
+											<form id="form5">
+												<!-- <div class="form-group">
+													${response.data.data.map((order) =>`
+													<div class="card mb-4">
+														<div class="card-body">
+															${order.cartItems.map((item)=>`
+															<div class="item">
+																<div class="card" style="width: 18rem;">
+																	<img src="${item.productID.images[0]}"
+																		class="card-img-top" alt="...">
+																	<div class="card-body">
+																		<h5 class="card-title">
+																			${item.quantity}&nbsp;x&nbsp;${item.productID.title}
+																		</h5>
+																		<p class="card-text">${item.productCategory ==
+																			"ChocolateBox" ?
+																			`
+																		<p>${item.variant}&nbsp pieces</p>`
+																		: item.productCategory == "Tray" ?
+																		`<p>${item.variant}&nbsp kg</p>`
+																		: item.productCategory == "Packages" ?
+																		`<p>${item.variant}&nbsp kg</p>`
+																		: item.productCategory == "Cake" &&
+																		`<p>${item.variant}&nbsp cm</p>`
+																		}</p>
+																		<p class="price">SAR&nbsp;<span
+																				id="price">${item.price *
+																				item.quantity}</span></p>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-											</div> -->
-										</form>
+												</div> -->
+											</form>
+										</div>
 									</div>
 								</div>
+								<!-- <div class="tab-pane fade" id="notification" role="tabpanel"
+									aria-labelledby="notification-tab">
+									<h3 class="mb-4">Notification Settings</h3>
+									<div class="form-group">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="notification1">
+											<label class="form-check-label" for="notification1">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium
+												accusamus, neque cupiditate quis
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="notification2">
+											<label class="form-check-label" for="notification2">
+												hic nesciunt repellat perferendis voluptatum totam porro eligendi.
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="notification3">
+											<label class="form-check-label" for="notification3">
+												commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
+											</label>
+										</div>
+									</div>
+									<div>
+										<button class="btn btn-primary">Update</button>
+										<button class="btn btn-light">Cancel</button>
+									</div>
+								</div> -->
 							</div>
-							<!-- <div class="tab-pane fade" id="notification" role="tabpanel"
-								aria-labelledby="notification-tab">
-								<h3 class="mb-4">Notification Settings</h3>
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="notification1">
-										<label class="form-check-label" for="notification1">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium
-											accusamus, neque cupiditate quis
-										</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="notification2">
-										<label class="form-check-label" for="notification2">
-											hic nesciunt repellat perferendis voluptatum totam porro eligendi.
-										</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="notification3">
-										<label class="form-check-label" for="notification3">
-											commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
-										</label>
-									</div>
-								</div>
-								<div>
-									<button class="btn btn-primary">Update</button>
-									<button class="btn btn-light">Cancel</button>
-								</div>
-							</div> -->
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+	
+		<!-- Modal -->
+		<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalCenterTitle">Add new address</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="form4">
+							<label>Title</label>
+							<input type="text" name="alias" class="form-control" value="" required>
+							<label>Details</label>
+							<input type="text" name="details" class="form-control" value="" required>
+							<label>Phone</label>
+							<input type="text" name="phone" class="form-control" value="" required>
+							<div class="modal-footer pt-4 pr-0">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal" id="closebtn">Close</button>
+								<button type="submit" class="btn btn-primary" >Save changes</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div>
+			<span id="numberofitems" class="notification">
+				<p class="num"></p>
+			</span>
+			<a href="cart.html" class="float">
+				<img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
+			</a>
+		</div>
+	
+		<!-- footer -->
+		<style>
+			@media only screen and (max-width: 600px) {
+				.footer_block-title {
+	
+					font-size: 14px;
+				}
+	
+			}
+	
+			@media only screen and (max-width: 600px) {
+				.link {
+	
+					font-size: 8px;
+				}
+	
+			}
+	
+			@media only screen and (max-width: 600px) {
+				.footer_block-subtitle {
+	
+					font-size: 10px;
+				}
+	
+			}
+	
+			@media only screen and (max-width: 600px) {
+				.kkk {
+	
+					scale: 0.6;
+				}
+	
+			}
+	
+			@media only screen and (max-width: 600px) {
+				.footer_block-list {
+					word-break: break-all;
+				}
+	
+			}
+		</style>
+		<footer class="footer section" style="background-image: url('img/bg.jpeg');background-repeat: no-repeat;background-size: cover;padding-top: 20px;
+	   padding-bottom: 20px;">
+			<div class="container ">
+				<div class="row gy-8 gx-8">
+					<div class="col-4 col-md-3">
+						<div class="footer_about">
+							<a class="logo h3" href="index.html" style="font-size: 35px;">
+								<img src="img/Asset 2.png">
+	
+								</span>
+	
+							</a>
+							<!-- <div class="wrapper">
+					   <p class="footer_about-address text--sm text--bold">Riverside Building, County Hall, London SE1 7PB, UK</p>
+					   <p class="footer_about-copyright text--sm">
+						   Merkulove &copy; Cafert Template All Rights Reserved <span id="currentYear"></span>
+					   </p>
+				   </div> -->
+	
 						</div>
 					</div>
 				</div>
-			</section>
-		</div>
-	</main>
-
-	<!-- Modal -->
-	<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Add new address</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="form4">
-						<label>Title</label>
-						<input type="text" name="alias" class="form-control" value="" required>
-						<label>Details</label>
-						<input type="text" name="details" class="form-control" value="" required>
-						<label>Phone</label>
-						<input type="text" name="phone" class="form-control" value="" required>
-						<div class="modal-footer pt-4 pr-0">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="closebtn">Close</button>
-							<button type="submit" class="btn btn-primary" >Save changes</button>
+				<br>
+	
+				<div class="row gy-8 gx-8 justify-content-between">
+					<div class="col-6 col-md-4">
+						<div class="footer_block" style="margin-top: -1px;">
+							<h4 class="footer_block-title">Contact Info</h4>
+							<ul class="footer_block-list text--bold text--md pl-0">
+								<li>
+									<a class="link" href="tel:00966-550626590"> <img src="img/phone.png"
+											style="width: 16px;margin-left: -2px;">00966-550626590 </a>
+								</li>
+	
+								<!-- <li>
+						   <a class="link" href="https://peacockchocolate.com.sa/" > <img src="img/ws.png" style="width: 20px;margin-left: -4px;">  peacockchocolate.com.sa</a>
+					   </li> -->
+								<li>
+									<a class="link" href="location:Imam Saud bin Faisal St.- Riyadh - Saudi Arabia"> <img
+											src="img/loc.png" style="width: 17px;margin-left: -1px;">Al Imam Saud Ibn Faysal
+										Rd.-Riyadh-Saudi Arabia</a>
+								</li>
+								<li>
+									<a class="link" href="mailto:roaanazawi@peacockchocolate.com.sa"> <img
+											src="img/email.png"
+											style="width: 20px;margin-left: -3px;">roaanazawi@peacockchocolate.com.sa</a>
+								</li>
+	
+	
+							</ul>
 						</div>
-					</form>
+					</div>
+					<!-- <div class="col-3 col-md-3">
+			   <div class="footer_block" style="margin-top: -1px;">
+				   <h4 class="footer_block-title" style="font-size: 22px;">Opening Hours</h4>
+				   <ul class="footer_block-list text--md">
+					   <li style="font-weight: 300;"><span class="text--bold">Mon – Fri</span> from 8am to 9pm</li>
+					   <li style="font-weight: 300;"><span class="text--bold">Saturday</span> from 9am to 4pm</li>
+					   <li style="font-weight: 300;"><span class="text--bold">Sunday</span> from 9am to 4pm</li>
+				   </ul>
+			   </div>
+		   </div> -->
+					<div class="col-6 col-md-4">
+						<div class="footer_block" style="margin-top: -1px;">
+							<h4 class="footer_block-title">Follow Our Activity</h4>
+							<p class="footer_block-subtitle text--md text--bold">We are in social networks</p>
+							<ul class="footer_block-socials d-flex pl-0" style="padding-bottom: 20px;">
+								<li class="kkk">
+									<a class="link" href="https://twitter.com/PeacockChocola" target="_blank"
+										rel="noopener noreferrer">
+										<i class="icon-twitter icon"></i>
+									</a>
+								</li>
+								<li class="kkk">
+									<a class="link" href="https://www.facebook.com/Peacock-Chocolate-105713368864072"
+										target="_blank" rel="noopener noreferrer">
+										<i class="icon-facebook icon"></i>
+									</a>
+								</li>
+								<li class="kkk">
+									<a class="link" href="https://instagram.com/peacock_chocolate_/" target="_blank"
+										rel="noopener noreferrer">
+										<i class="icon-instagram icon"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row gy-8 gx-8 justify-content-between">
+	
 				</div>
 			</div>
-		</div>
+		</footer>
+
 	</div>
 
-	<div>
-		<span id="numberofitems" class="notification">
-			<p class="num"></p>
-		</span>
-		<a href="cart.html" class="float">
-			<img src="img/icons8-shopping-cart-96.png" alt="" class="cart-icon">
-		</a>
-	</div>
-
-	<!-- footer -->
-	<style>
-		@media only screen and (max-width: 600px) {
-			.footer_block-title {
-
-				font-size: 14px;
-			}
-
-		}
-
-		@media only screen and (max-width: 600px) {
-			.link {
-
-				font-size: 8px;
-			}
-
-		}
-
-		@media only screen and (max-width: 600px) {
-			.footer_block-subtitle {
-
-				font-size: 10px;
-			}
-
-		}
-
-		@media only screen and (max-width: 600px) {
-			.kkk {
-
-				scale: 0.6;
-			}
-
-		}
-
-		@media only screen and (max-width: 600px) {
-			.footer_block-list {
-				word-break: break-all;
-			}
-
-		}
-	</style>
-	<footer class="footer section" style="background-image: url('img/bg.jpeg');background-repeat: no-repeat;background-size: cover;padding-top: 20px;
-   padding-bottom: 20px;">
-		<div class="container ">
-			<div class="row gy-8 gx-8">
-				<div class="col-4 col-md-3">
-					<div class="footer_about">
-						<a class="logo h3" href="index.html" style="font-size: 35px;">
-							<img src="img/Asset 2.png">
-
-							</span>
-
-						</a>
-						<!-- <div class="wrapper">
-                   <p class="footer_about-address text--sm text--bold">Riverside Building, County Hall, London SE1 7PB, UK</p>
-                   <p class="footer_about-copyright text--sm">
-                       Merkulove &copy; Cafert Template All Rights Reserved <span id="currentYear"></span>
-                   </p>
-               </div> -->
-
-					</div>
-				</div>
-			</div>
-			<br>
-
-			<div class="row gy-8 gx-8 justify-content-between">
-				<div class="col-6 col-md-4">
-					<div class="footer_block" style="margin-top: -1px;">
-						<h4 class="footer_block-title">Contact Info</h4>
-						<ul class="footer_block-list text--bold text--md pl-0">
-							<li>
-								<a class="link" href="tel:00966-550626590"> <img src="img/phone.png"
-										style="width: 16px;margin-left: -2px;">00966-550626590 </a>
-							</li>
-
-							<!-- <li>
-                       <a class="link" href="https://peacockchocolate.com.sa/" > <img src="img/ws.png" style="width: 20px;margin-left: -4px;">  peacockchocolate.com.sa</a>
-                   </li> -->
-							<li>
-								<a class="link" href="location:Imam Saud bin Faisal St.- Riyadh - Saudi Arabia"> <img
-										src="img/loc.png" style="width: 17px;margin-left: -1px;">Al Imam Saud Ibn Faysal
-									Rd.-Riyadh-Saudi Arabia</a>
-							</li>
-							<li>
-								<a class="link" href="mailto:roaanazawi@peacockchocolate.com.sa"> <img
-										src="img/email.png"
-										style="width: 20px;margin-left: -3px;">roaanazawi@peacockchocolate.com.sa</a>
-							</li>
-
-
-						</ul>
-					</div>
-				</div>
-				<!-- <div class="col-3 col-md-3">
-           <div class="footer_block" style="margin-top: -1px;">
-               <h4 class="footer_block-title" style="font-size: 22px;">Opening Hours</h4>
-               <ul class="footer_block-list text--md">
-                   <li style="font-weight: 300;"><span class="text--bold">Mon – Fri</span> from 8am to 9pm</li>
-                   <li style="font-weight: 300;"><span class="text--bold">Saturday</span> from 9am to 4pm</li>
-                   <li style="font-weight: 300;"><span class="text--bold">Sunday</span> from 9am to 4pm</li>
-               </ul>
-           </div>
-       </div> -->
-				<div class="col-6 col-md-4">
-					<div class="footer_block" style="margin-top: -1px;">
-						<h4 class="footer_block-title">Follow Our Activity</h4>
-						<p class="footer_block-subtitle text--md text--bold">We are in social networks</p>
-						<ul class="footer_block-socials d-flex pl-0" style="padding-bottom: 20px;">
-							<li class="kkk">
-								<a class="link" href="https://twitter.com/PeacockChocola" target="_blank"
-									rel="noopener noreferrer">
-									<i class="icon-twitter icon"></i>
-								</a>
-							</li>
-							<li class="kkk">
-								<a class="link" href="https://www.facebook.com/Peacock-Chocolate-105713368864072"
-									target="_blank" rel="noopener noreferrer">
-									<i class="icon-facebook icon"></i>
-								</a>
-							</li>
-							<li class="kkk">
-								<a class="link" href="https://instagram.com/peacock_chocolate_/" target="_blank"
-									rel="noopener noreferrer">
-									<i class="icon-instagram icon"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row gy-8 gx-8 justify-content-between">
-
-			</div>
-		</div>
-	</footer>
+	
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -627,10 +641,11 @@
 
 
 	<!-- <script src="js/cart.js"></script> -->
+	<script src="js/myprofile.js"></script>
 	<script src="js/common.min.js"></script>
 	<script src="js/usericon.js"></script>
 	<script src="js/logout.js"></script>
-	<script src="js/myprofile.js"></script>
+	<script src="js/preloader.js"></script>
 	<script src="js/numbercartitems.js"></script>
 
 	<!-- <script src="js/map.min.js"></script>
