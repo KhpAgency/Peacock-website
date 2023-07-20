@@ -314,6 +314,13 @@ strong {
 
 }
 
+@media only screen and (max-width: 768px) {
+    .pmob20{
+        padding: 0px 20px;
+    }
+
+}
+
 @media screen and (min-width: 1199.98px) {
     .header_nav {
         margin-top: 15px;

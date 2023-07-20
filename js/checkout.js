@@ -9,8 +9,17 @@ function getorderitems() {
     };
     axios.request(options)
         .then(function (response) {
+
             const cart = response.data.data.cartItems
             console.log(response.data.data);
+            cart.map((item) => {
+                if (item.productID == null) {
+                    document.getElementById("proceedbutton").setAttribute("disabled", "");
+                    document.getElementById("proceedbutton").setAttribute("data-toggle", "tooltip");
+                    document.getElementById("proceedbutton").setAttribute("title", "invalid data");
+
+                }
+            })
             let data = cart.map((item) =>
                 item.productID !== null ?
                     `<div class="item">
@@ -34,18 +43,20 @@ function getorderitems() {
             </div>`
             ).join("")
             document.getElementById("orderproducts").innerHTML = data;
-            if (item.productID == null) {
-                document.getElementById("proceedbutton").setAttribute("disabled", "");
-                document.getElementById("proceedbutton").setAttribute("data-toggle", "tooltip");
-                document.getElementById("proceedbutton").setAttribute("title", "invalid data");
 
-            }
+            // if (item.productID == null) {
+            //     document.getElementById("proceedbutton").setAttribute("disabled", "");
+            //     document.getElementById("proceedbutton").setAttribute("data-toggle", "tooltip");
+            //     document.getElementById("proceedbutton").setAttribute("title", "invalid data");
+
+            // }
+
+
+            console.log(response.data.data.user.addresses);
 
             let data2 = `Total<span class="price">SAR&nbsp;${response.data.data.totalCartPrice}</span>`
             document.getElementById("total").innerHTML = data2;
-
-
-            if (response.data.data.user.addresses < 1) {
+            if (response.data.data.user.addresses <= 0) {
                 let data4 =
                     `
             <div id="accordion">
@@ -149,3 +160,76 @@ function collectFormData() {
         });
 
 }
+
+// if (document.getElementById("online").checked) {
+//     document.getElementById("proceedbutton").style.display = "none";
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get references to the radio button and the button you want to hide
+    const onlineRadioButton = document.getElementById("online");
+    const cashRadioButton = document.getElementById("cash");
+    const proceedButton = document.getElementById("proceedbutton");
+
+    // Add an event listener to the radio button to listen for changes
+    onlineRadioButton.addEventListener("click", function () {
+        // Check if the radio button is checked
+        if (onlineRadioButton.checked) {
+            // If the radio button is checked, hide the button
+            proceedButton.style.display = "none";
+            proceedButton.setAttribute("disabled", "");
+
+    let id = document.getElementById("cartIDs").value;
+
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/JSON",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+        
+                },
+                url: `https://peacock-api-ixpn.onrender.com/api/v1/orders/payonline/${id}`,
+                data: {
+                    shippingAddress: {
+                        name:"mohamed khaled",
+                        details: document.getElementById(`addressdetails_${localStorage.getItem("addressID")}`).innerHTML,
+                        phone: document.getElementById(`addressphone_${localStorage.getItem("addressID")}`).innerHTML,
+                        city:"Alexandria",
+                        state: "ALX"
+                    }
+                },
+            };
+        
+            axios.request(options).then((res)=>{
+                console.log(res);
+
+              let iframe=  document.querySelector("iframe")
+              iframe.setAttribute("src",`${res.data.paymentURL}` )
+            }).catch((err)=>{
+                console.log(err);
+            })
+
+
+
+
+
+        } else {
+            // If the radio button is not checked, show the button
+            proceedButton.style.display = "block"; // Or "inline-block" depending on your layout
+        }
+    });
+
+    // Add an event listener to the radio button to listen for changes
+    cashRadioButton.addEventListener("click", function () {
+        // Check if the radio button is checked
+        if (cashRadioButton.checked) {
+            // If the radio button is checked, hide the button
+            proceedButton.style.display = "block";
+            proceedButton.removeAttribute("disabled", "");
+
+        } else {
+            // If the radio button is not checked, show the button
+            proceedButton.style.display = "none"; // Or "inline-block" depending on your layout
+        }
+    });
+});
