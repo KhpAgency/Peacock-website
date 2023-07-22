@@ -73,4 +73,7 @@
     .mb-mob{
         margin-bottom: 20px;
     }
+    .fsmaller{
+        font-size: smaller;
+    }
 }

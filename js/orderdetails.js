@@ -32,7 +32,7 @@ function getorderdetails() {
                                             <div class="sq align-self-center "> 
                                                 <img class="my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="${item.productID.images[0]}" style="width: 100px" />
                                             </div>
-                                            <div class="media-body my-auto ">
+                                            <div class="media-body my-auto fsmaller">
                                                 <div class="row text-left">
                                                     <h6 class="mb-2 fs1">${item.productID.title}</h6>
                                                 </div>
