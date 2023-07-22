@@ -430,6 +430,18 @@ function getorders() {
 getorders();
 
 
+window.addEventListener("DOMContentLoaded", function() {
+    if (window.innerWidth <= 768) {
+        var dropdownMenu = document.getElementById("servicesMenu");
+        dropdownMenu.classList.remove("dropdown-menu");
+
+        var dropdownMenu2 = document.getElementById("productsMenu");
+        dropdownMenu2.classList.remove("dropdown-menu");
+    }
+});
+
+
+
 // function removemodal() {
 //     document.getElementById("exampleModalCenter").style.display="none";
 //     getaddresses();

@@ -259,6 +259,15 @@ function remove(id) {
 
 }
 
+window.addEventListener("DOMContentLoaded", function() {
+    if (window.innerWidth <= 768) {
+        var dropdownMenu = document.getElementById("servicesMenu");
+        dropdownMenu.classList.remove("dropdown-menu");
+
+        var dropdownMenu2 = document.getElementById("productsMenu");
+        dropdownMenu2.classList.remove("dropdown-menu");
+    }
+});
 
 // Check if quantity and total price exist in localStorage and update the input field and price
 // var quantityInput = document.getElementById("form1");
